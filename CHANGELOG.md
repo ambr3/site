@@ -2,6 +2,13 @@
 
 All notable changes to **SeclusaSite**.
 
+## 15.6 — 2026-11-02
+
+### Changed
+- Notes and Calendar store tiles use their new distinct app icons (document / calendar), replacing the shared mark
+- Store tile versions synced: Notes 0.2.7, Calendar 0.3.4, Games 0.1.29, BP 0.1.6
+- Asset and service-worker cache version 15.6
+
 ## 15.5 — 2026-11-02
 
 ### Fixed
