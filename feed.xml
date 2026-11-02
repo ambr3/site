@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Seclusa</title>
+    <link>https://ambr3.github.io/site/</link>
+    <description>Privacy-first Seclusa apps. Source on GitHub.</description>
+    <lastBuildDate>Sun, 02 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Seclusa site on GitHub Pages</title>
+      <link>https://github.com/ambr3/site</link>
+      <guid isPermaLink="true">https://github.com/ambr3/site#github-pages</guid>
+      <pubDate>Sun, 02 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Site and apps now live on GitHub. Source and GitHub Pages replace the old self-hosted mirrors.</description>
+    </item>
+  </channel>
+</rss>

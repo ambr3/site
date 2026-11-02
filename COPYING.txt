@@ -1,0 +1,10 @@
+Copyright (C) 2026 Seclusa
+
+This site and its original content are free software: you can redistribute
+it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.
+
+See the file LICENSE for the full text of the GNU GPL version 3.
+
+Each Seclusa app keeps its own licence in its own repository.

@@ -1,0 +1,15 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.bak
+*.swp
+
+# Local scratch
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.tmp/
+dist/

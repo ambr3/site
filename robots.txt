@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ambr3.github.io/site/sitemap.xml
+Feed: https://ambr3.github.io/site/feed.xml
