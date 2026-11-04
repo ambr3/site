@@ -2,6 +2,15 @@
 
 All notable changes to **SeclusaSite**.
 
+## 15.7 — 2026-11-04
+
+### Added
+- Seclusa Convert store tile (Open → `ambr3.github.io/unit-convert/`, Source → `ambr3/unit-convert`)
+
+### Changed
+- Privacy notice lists Convert with the other local-only apps
+- Asset and service-worker cache version 15.7
+
 ## 15.6 — 2026-11-02
 
 ### Changed

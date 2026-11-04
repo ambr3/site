@@ -55,6 +55,7 @@ declare -A expect=(
   [calendar]="0.3.4"
   [games]="0.1.29"
   [bp]="0.1.6"
+  [convert]="0.1.1"
 )
 declare -A label=(
   [weather]="Seclusa Weather"
@@ -62,10 +63,11 @@ declare -A label=(
   [calendar]="Seclusa Calendar"
   [games]="Seclusa Games"
   [bp]="Seclusa BP"
+  [convert]="Seclusa Convert"
 )
 
 html="$ROOT/index.html"
-for key in weather notes calendar games bp; do
+for key in weather notes calendar games bp convert; do
   ver="${expect[$key]}"
   name="${label[$key]}"
   if grep -A6 "<h2>${name}</h2>" "$html" | grep -q "v${ver}"; then
@@ -102,6 +104,7 @@ check_app notes notes manifest.webmanifest
 check_app calendar calendar manifest.webmanifest
 check_app games seclusa-games manifest.json
 check_app bp blood-pressure manifest.json
+check_app convert convert manifest.json
 
 # apps/ redirect should carry the same privacy/security meta posture.
 if grep -q 'Content-Security-Policy' "$ROOT/apps/index.html" \
