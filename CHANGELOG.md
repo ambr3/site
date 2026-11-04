@@ -2,6 +2,15 @@
 
 All notable changes to **SeclusaSite**.
 
+## 15.8 — 2026-11-04
+
+### Added
+- Seclusa Privacy store tile (Open → `ambr3.github.io/privacy-check/`, Source → `ambr3/privacy-check`)
+
+### Changed
+- Privacy notice covers the Privacy toolkit app
+- Asset and service-worker cache version 15.8
+
 ## 15.7 — 2026-11-04
 
 ### Added

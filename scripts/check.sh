@@ -56,6 +56,7 @@ declare -A expect=(
   [games]="0.1.29"
   [bp]="0.1.6"
   [convert]="0.1.1"
+  [privacy]="0.1.0"
 )
 declare -A label=(
   [weather]="Seclusa Weather"
@@ -64,10 +65,11 @@ declare -A label=(
   [games]="Seclusa Games"
   [bp]="Seclusa BP"
   [convert]="Seclusa Convert"
+  [privacy]="Seclusa Privacy"
 )
 
 html="$ROOT/index.html"
-for key in weather notes calendar games bp convert; do
+for key in weather notes calendar games bp convert privacy; do
   ver="${expect[$key]}"
   name="${label[$key]}"
   if grep -A6 "<h2>${name}</h2>" "$html" | grep -q "v${ver}"; then
@@ -105,6 +107,10 @@ check_app calendar calendar manifest.webmanifest
 check_app games seclusa-games manifest.json
 check_app bp blood-pressure manifest.json
 check_app convert convert manifest.json
+# Seclusa Privacy may still live under project ideas until moved to apps/.
+if [[ -f "$APPS/privacy-check/manifest.json" ]]; then
+  check_app privacy privacy-check manifest.json
+fi
 
 # apps/ redirect should carry the same privacy/security meta posture.
 if grep -q 'Content-Security-Policy' "$ROOT/apps/index.html" \
