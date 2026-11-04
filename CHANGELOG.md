@@ -2,6 +2,12 @@
 
 All notable changes to **SeclusaSite**.
 
+## 15.9 — 2026-11-04
+
+### Changed
+- Seclusa Privacy store tile is Coming soon (no Open / Source links while the app stays private)
+- Asset and service-worker cache version 15.9
+
 ## 15.8 — 2026-11-04
 
 ### Added

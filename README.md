@@ -6,7 +6,7 @@ Hosted on GitHub Pages from this repository.
 
 ## Features
 
-- Version 15.8
+- Version 15.9
 - Links to each app’s GitHub Pages demo and source repo
 - Works offline once you have opened it (service worker)
 - No accounts, no analytics, no ads
