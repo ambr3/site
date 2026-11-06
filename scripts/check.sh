@@ -51,11 +51,11 @@ fi
 # Store tile versions vs sibling app manifests (when present).
 declare -A expect=(
   [weather]="0.7.22"
-  [notes]="0.2.12"
-  [calendar]="0.3.8"
+  [notes]="0.2.13"
+  [calendar]="0.3.9"
   [games]="0.1.34"
-  [bp]="0.1.10"
-  [convert]="0.1.3"
+  [bp]="0.1.11"
+  [convert]="0.1.4"
 )
 declare -A label=(
   [weather]="Seclusa Weather"

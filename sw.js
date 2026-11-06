@@ -1,6 +1,6 @@
-const CACHE = "seclusa-site-v15.10";
+const CACHE = "seclusa-site-v15.11";
 const BASE = self.location.pathname.replace(/\/[^/]*$/, "/");
-const V = "15.10";
+const V = "15.11";
 
 /**
  * Whether a URL is one this worker is allowed to keep a copy of.
@@ -56,13 +56,13 @@ const PRECACHE = [
   BASE + "icons/icon-512.png?v=" + V,
   BASE + "icons/logo.png?v=" + V,
   BASE + "icons/apple-touch-icon.png?v=" + V,
-  BASE + "icons/weather-192.png?v=" + V,
-  BASE + "icons/notes-192.png?v=" + V,
-  BASE + "icons/calendar-192.png?v=" + V,
-  BASE + "icons/games-192.png?v=" + V,
-  BASE + "icons/blood-pressure-192.png?v=" + V,
-  BASE + "icons/convert-192.png?v=" + V,
-  BASE + "icons/privacy-192.png?v=" + V,
+  BASE + "icons/weather-glyph.png",
+  BASE + "icons/notes-glyph.png",
+  BASE + "icons/calendar-glyph.png",
+  BASE + "icons/games-glyph.png",
+  BASE + "icons/blood-pressure-glyph.png",
+  BASE + "icons/convert-glyph.png",
+  BASE + "icons/privacy-glyph.png",
   BASE + "icons/email.svg",
   BASE + "icons/github.svg",
   BASE + "icons/matrix.svg",

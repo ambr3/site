@@ -2,6 +2,13 @@
 
 All notable changes to **SeclusaSite**.
 
+## 15.11 — 2026-11-06
+
+### Changed
+- Store icons use the current app artwork. Tile and mark swap between light and dark
+- Store tiles match the local apps: Notes 0.2.13, Calendar 0.3.9, BP 0.1.11, Convert 0.1.4
+- Asset and service-worker cache version 15.11
+
 ## 15.10 — 2026-11-06
 
 ### Fixed
