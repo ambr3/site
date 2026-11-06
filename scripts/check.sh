@@ -48,6 +48,15 @@ else
   ok "Pages URLs use /site/"
 fi
 
+html="$ROOT/index.html"
+
+if grep -q 'id="cat-daily"' "$html" && grep -q '>Daily apps<' "$html" \
+  && grep -q 'id="cat-games"' "$html" && grep -q '>Games<' "$html"; then
+  ok "store has Daily apps and Games categories"
+else
+  bad "store missing Daily apps / Games category headings"
+fi
+
 # Store tile versions vs sibling app manifests (when present).
 declare -A expect=(
   [weather]="0.7.22"
@@ -56,6 +65,12 @@ declare -A expect=(
   [games]="0.1.34"
   [bp]="0.1.11"
   [convert]="0.1.4"
+  [lockdown]="0.1.2"
+  [blocks]="0.1.0"
+  [klondike]="0.1.1"
+  [munch]="0.1.1"
+  [pyramid]="0.1.1"
+  [word]="0.1.1"
 )
 declare -A label=(
   [weather]="Seclusa Weather"
@@ -64,10 +79,15 @@ declare -A label=(
   [games]="Seclusa Games"
   [bp]="Seclusa BP"
   [convert]="Seclusa Convert"
+  [lockdown]="Seclusa Lockdown"
+  [blocks]="Seclusa Blocks"
+  [klondike]="Seclusa Klondike"
+  [munch]="Seclusa Munch"
+  [pyramid]="Seclusa Pyramid"
+  [word]="Word Puzzle"
 )
 
-html="$ROOT/index.html"
-for key in weather notes calendar games bp convert; do
+for key in weather notes calendar bp convert games lockdown blocks klondike munch pyramid word; do
   ver="${expect[$key]}"
   name="${label[$key]}"
   if grep -A6 "<h2>${name}</h2>" "$html" | grep -q "v${ver}"; then
@@ -76,6 +96,14 @@ for key in weather notes calendar games bp convert; do
     bad "store tile ${name} should show v${ver}"
   fi
 done
+
+if grep -A14 "<h2>Seclusa Games</h2>" "$html" | grep -q "Leaving soon" \
+  && grep -A18 "<h2>Seclusa Games</h2>" "$html" | grep -q 'href="https://ambr3.github.io/games/"' \
+  && grep -A18 "<h2>Seclusa Games</h2>" "$html" | grep -q 'href="https://github.com/ambr3/games"'; then
+  ok "store tile Seclusa Games is Leaving soon (Open/Source kept)"
+else
+  bad "store tile Seclusa Games should be Leaving soon with Open/Source links"
+fi
 
 if grep -A12 "<h2>Seclusa Privacy</h2>" "$html" | grep -q "Coming soon" \
   && ! grep -A14 "<h2>Seclusa Privacy</h2>" "$html" | grep -qE 'href="https://(ambr3\.github\.io/privacy-check/|github\.com/ambr3/privacy-check)"'; then
@@ -112,6 +140,12 @@ check_app calendar calendar manifest.webmanifest
 check_app games seclusa-games manifest.json
 check_app bp blood-pressure manifest.json
 check_app convert convert manifest.json
+check_app lockdown seclusa-lockdown manifest.json
+check_app blocks seclusa-blocks manifest.json
+check_app klondike seclusa-klondike manifest.json
+check_app munch seclusa-munch manifest.json
+check_app pyramid seclusa-pyramid manifest.json
+check_app word seclusa-word-puzzle manifest.json
 
 # apps/ redirect should carry the same privacy/security meta posture.
 if grep -q 'Content-Security-Policy' "$ROOT/apps/index.html" \

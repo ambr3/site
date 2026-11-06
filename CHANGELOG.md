@@ -2,6 +2,31 @@
 
 All notable changes to **SeclusaSite**.
 
+## 15.15 — 2026-11-06
+
+### Changed
+- Seclusa Games hub tile matched to other store cards (no stretched first row)
+- Asset and service-worker cache version 15.15
+
+## 15.14 — 2026-11-06
+
+### Changed
+- Daily apps / Games category titles use the display face at a larger size
+- Split games use their own store glyphs (Blocks, Klondike, Munch, Pyramid, Word Puzzle)
+- Asset and service-worker cache version 15.14
+
+## 15.13 — 2026-11-06
+
+### Added
+- Store categories: Daily apps and Games
+- Seclusa Lockdown store tile
+- Split game tiles: Blocks, Klondike, Munch, Pyramid, Word Puzzle
+
+### Changed
+- Seclusa Games hub marked Leaving soon (Open / Source still available for a short while)
+- Privacy notice covers the split games and Lockdown
+- Asset and service-worker cache version 15.13
+
 ## 15.11 — 2026-11-06
 
 ### Changed
