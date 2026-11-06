@@ -9,10 +9,10 @@ ok() { printf 'ok  %s\n' "$*"; }
 bad() { printf 'FAIL %s\n' "$*"; fail=1; }
 
 # Service worker must treat URL.search (which includes "?") as the stamp form.
-if grep -qE 'url\.search === "" \|\| /\^\\\?v=' "$ROOT/sw.js"; then
-  ok "sw.js cacheable() matches ?v= stamps"
+if grep -qF 'url.search === "" || url.search === "?v=" + V' "$ROOT/sw.js"; then
+  ok "sw.js cacheable() matches the exact ?v= stamp"
 else
-  bad "sw.js cacheable() must use /^\\?v=…/ against url.search"
+  bad "sw.js cacheable() must allow only an empty query or the exact ?v= stamp"
 fi
 
 # Site version stamps must agree.
@@ -50,12 +50,12 @@ fi
 
 # Store tile versions vs sibling app manifests (when present).
 declare -A expect=(
-  [weather]="0.7.9"
-  [notes]="0.2.7"
-  [calendar]="0.3.4"
-  [games]="0.1.29"
-  [bp]="0.1.6"
-  [convert]="0.1.1"
+  [weather]="0.7.22"
+  [notes]="0.2.12"
+  [calendar]="0.3.8"
+  [games]="0.1.34"
+  [bp]="0.1.10"
+  [convert]="0.1.3"
 )
 declare -A label=(
   [weather]="Seclusa Weather"
@@ -121,12 +121,20 @@ else
   bad "apps/index.html missing CSP or referrer policy"
 fi
 
-# Accidental global letter shortcuts should stay gone.
-if grep -q 'keydown' "$ROOT/js/site.js"; then
-  bad "js/site.js still binds keydown shortcuts"
+# Accidental global letter shortcuts should stay gone. Escape only closes the theme sheet.
+if grep -qE '"[as]"|'"'"'[as]'"'"'' "$ROOT/js/site.js"; then
+  bad "js/site.js still binds a/s shortcuts"
 else
-  ok "no global keydown shortcuts in site.js"
+  ok "no global a/s shortcuts in site.js"
 fi
+
+for f in "$ROOT/index.html" "$ROOT/offline.html" "$ROOT/about/index.html" "$ROOT/privacy/index.html"; do
+  if grep -q 'data-theme-opt="system"' "$f" && grep -q 'data-theme-opt="light"' "$f" && grep -q 'data-theme-opt="dark"' "$f"; then
+    ok "theme sheet in ${f#"$ROOT"/}"
+  else
+    bad "${f#"$ROOT"/} missing System / Light / Dark theme sheet"
+  fi
+done
 
 if [[ "$fail" -ne 0 ]]; then
   echo

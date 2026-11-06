@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#070b12">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; worker-src 'self'; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; img-src 'self'; font-src 'self'; style-src 'self'; script-src 'self'; worker-src 'self'; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests">
   <title>Seclusa | ambr3</title>
   <link rel="canonical" href="https://ambr3.github.io/site/">
   <meta property="og:type" content="website">
@@ -21,19 +21,27 @@
   <meta name="twitter:description" content="ambr3 | Seclusa privacy-first apps and open source.">
   <meta name="twitter:image" content="https://ambr3.github.io/site/icons/social.png">
   <link rel="alternate" type="application/rss+xml" title="Seclusa releases" href="feed.xml">
-  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png?v=15.9">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=15.9">
-  <script src="js/theme-boot.js?v=15.9"></script>
-  <link rel="stylesheet" href="css/site.css?v=15.9">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png?v=15.10">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=15.10">
+  <script src="js/theme-boot.js?v=15.10"></script>
+  <link rel="stylesheet" href="css/site.css?v=15.10">
 </head>
-<body data-site-v="15.9">
+<body data-site-v="15.10">
   <nav class="site-nav" aria-label="Primary">
     <a class="brand" href="./">
-      <img class="brand-mark" src="icons/icon-192.png?v=15.9" width="40" height="40" alt="Seclusa">
+      <img class="brand-mark" src="icons/icon-192.png?v=15.10" width="40" height="40" alt="Seclusa">
     </a>
     <ul class="links">
-      <li>
-        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle light and dark theme">Theme</button>
+      <li class="theme-menu">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-expanded="false" aria-haspopup="dialog" aria-controls="theme-sheet">Theme</button>
+        <div class="theme-sheet" id="theme-sheet" data-theme-sheet role="dialog" aria-label="Theme" hidden>
+          <p class="theme-sheet__label">Mode</p>
+          <div class="theme-sheet__row" role="radiogroup" aria-label="Colour mode">
+            <button type="button" role="radio" data-theme-opt="system" aria-checked="false">System</button>
+            <button type="button" role="radio" data-theme-opt="light" aria-checked="false">Light</button>
+            <button type="button" role="radio" data-theme-opt="dark" aria-checked="false">Dark</button>
+          </div>
+        </div>
       </li>
     </ul>
   </nav>
@@ -43,7 +51,7 @@
       <div class="hero-copy">
         <div class="hero-brand-row">
           <div class="hero-lockup reveal">
-            <img class="hero-lockup__icon" src="icons/logo.png?v=15.9" width="288" height="234" alt="Seclusa">
+            <img class="hero-lockup__icon" src="icons/logo.png?v=15.10" width="288" height="234" alt="Seclusa">
             <hr class="hero-lockup__rule" aria-hidden="true">
             <p class="hero-lockup__tag">
               Latin:
@@ -66,11 +74,11 @@
         <div class="app-grid">
           <article class="app-tile">
             <div class="app-launch">
-              <img class="app-icon app-icon--mark" src="icons/weather-192.png" alt="" width="64" height="64" loading="lazy">
+              <img class="app-icon app-icon--mark" src="icons/weather-192.png?v=15.10" alt="" width="64" height="64" loading="lazy">
               <div class="app-copy">
                 <h2>Seclusa Weather</h2>
                 <p>Privacy-first weather: Open-Meteo only, no accounts or trackers.</p>
-                <div class="meta"><span>PWA</span><span>v0.7.9</span></div>
+                <div class="meta"><span>PWA</span><span>v0.7.22</span></div>
               </div>
             </div>
             <div class="app-store-actions">
@@ -81,11 +89,11 @@
 
           <article class="app-tile">
             <div class="app-launch">
-              <img class="app-icon app-icon--mark" src="icons/notes-192.png?v=15.9" alt="" width="64" height="64" loading="lazy">
+              <img class="app-icon app-icon--mark" src="icons/notes-192.png?v=15.10" alt="" width="64" height="64" loading="lazy">
               <div class="app-copy">
                 <h2>Seclusa Notes</h2>
                 <p>Private notebook: all data stays on your device.</p>
-                <div class="meta"><span>PWA</span><span>v0.2.7</span></div>
+                <div class="meta"><span>PWA</span><span>v0.2.12</span></div>
               </div>
             </div>
             <div class="app-store-actions">
@@ -96,11 +104,11 @@
 
           <article class="app-tile">
             <div class="app-launch">
-              <img class="app-icon app-icon--mark" src="icons/calendar-192.png?v=15.9" alt="" width="64" height="64" loading="lazy">
+              <img class="app-icon app-icon--mark" src="icons/calendar-192.png?v=15.10" alt="" width="64" height="64" loading="lazy">
               <div class="app-copy">
                 <h2>Seclusa Calendar</h2>
                 <p>Private calendar: events stay on your device.</p>
-                <div class="meta"><span>PWA</span><span>v0.3.4</span></div>
+                <div class="meta"><span>PWA</span><span>v0.3.8</span></div>
               </div>
             </div>
             <div class="app-store-actions">
@@ -111,11 +119,11 @@
 
           <article class="app-tile">
             <div class="app-launch">
-              <img class="app-icon app-icon--mark" src="icons/games-192.png" alt="" width="64" height="64" loading="lazy">
+              <img class="app-icon app-icon--mark" src="icons/games-192.png?v=15.10" alt="" width="64" height="64" loading="lazy">
               <div class="app-copy">
                 <h2>Seclusa Games</h2>
                 <p>Privacy-first games. Local only, no tracking.</p>
-                <div class="meta"><span>PWA</span><span>v0.1.29</span></div>
+                <div class="meta"><span>PWA</span><span>v0.1.34</span></div>
               </div>
             </div>
             <div class="app-store-actions">
@@ -126,11 +134,11 @@
 
           <article class="app-tile">
             <div class="app-launch">
-              <img class="app-icon app-icon--mark" src="icons/blood-pressure-192.png" alt="" width="64" height="64" loading="lazy">
+              <img class="app-icon app-icon--mark" src="icons/blood-pressure-192.png?v=15.10" alt="" width="64" height="64" loading="lazy">
               <div class="app-copy">
                 <h2>Seclusa BP</h2>
                 <p>A private blood pressure log. Nothing leaves your device.</p>
-                <div class="meta"><span>PWA</span><span>v0.1.6</span></div>
+                <div class="meta"><span>PWA</span><span>v0.1.10</span></div>
               </div>
             </div>
             <div class="app-store-actions">
@@ -141,11 +149,11 @@
 
           <article class="app-tile">
             <div class="app-launch">
-              <img class="app-icon app-icon--mark" src="icons/convert-192.png?v=15.9" alt="" width="64" height="64" loading="lazy">
+              <img class="app-icon app-icon--mark" src="icons/convert-192.png?v=15.10" alt="" width="64" height="64" loading="lazy">
               <div class="app-copy">
                 <h2>Seclusa Convert</h2>
                 <p>Private unit converter: everything stays on your device.</p>
-                <div class="meta"><span>PWA</span><span>v0.1.1</span></div>
+                <div class="meta"><span>PWA</span><span>v0.1.3</span></div>
               </div>
             </div>
             <div class="app-store-actions">
@@ -156,7 +164,7 @@
 
           <article class="app-tile app-tile--soon">
             <div class="app-launch">
-              <img class="app-icon app-icon--mark" src="icons/privacy-192.png?v=15.9" alt="" width="64" height="64" loading="lazy">
+              <img class="app-icon app-icon--mark" src="icons/privacy-192.png?v=15.10" alt="" width="64" height="64" loading="lazy">
               <div class="app-copy">
                 <h2>Seclusa Privacy</h2>
                 <p>Local privacy toolkit: policy, headers, URLs — nothing leaves the device.</p>
@@ -194,11 +202,11 @@
     </div>
       </div>
       <div class="foot-bottom">
-        <p class="foot-legal"><span class="foot-legal__mark" aria-hidden="true">©</span><span class="foot-legal__text">2026 Seclusa · <a href="COPYING.txt">GPL-3.0</a> · <span class="foot-ver">v15.9</span></span></p>
+        <p class="foot-legal"><span class="foot-legal__mark" aria-hidden="true">©</span><span class="foot-legal__text">2026 Seclusa · <a href="COPYING.txt">GPL-3.0</a> · <span class="foot-ver">v15.10</span></span></p>
         <p class="foot-credit">Made with ❤️ 🇬🇧</p>
       </div>
     </div>
   </footer>
-  <script src="js/site.js?v=15.9"></script>
+  <script src="js/site.js?v=15.10"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#070b12">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; worker-src 'self'; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; img-src 'self'; font-src 'self'; style-src 'self'; script-src 'self'; worker-src 'self'; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests">
   <title>About | Seclusa</title>
   <link rel="canonical" href="https://ambr3.github.io/site/about/">
   <meta property="og:type" content="website">
@@ -21,19 +21,27 @@
   <meta name="twitter:description" content="Why Seclusa builds privacy-first PWAs.">
   <meta name="twitter:image" content="https://ambr3.github.io/site/icons/social.png">
   <link rel="alternate" type="application/rss+xml" title="Seclusa releases" href="../feed.xml">
-  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png?v=15.9">
-  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png?v=15.9">
-  <script src="../js/theme-boot.js?v=15.9"></script>
-  <link rel="stylesheet" href="../css/site.css?v=15.9">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png?v=15.10">
+  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png?v=15.10">
+  <script src="../js/theme-boot.js?v=15.10"></script>
+  <link rel="stylesheet" href="../css/site.css?v=15.10">
 </head>
-<body data-site-v="15.9">
+<body data-site-v="15.10">
   <nav class="site-nav" aria-label="Primary">
     <a class="brand" href="../">
-      <img class="brand-mark" src="../icons/icon-192.png?v=15.9" width="40" height="40" alt="Seclusa">
+      <img class="brand-mark" src="../icons/icon-192.png?v=15.10" width="40" height="40" alt="Seclusa">
     </a>
     <ul class="links">
-      <li>
-        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle light and dark theme">Theme</button>
+      <li class="theme-menu">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-expanded="false" aria-haspopup="dialog" aria-controls="theme-sheet">Theme</button>
+        <div class="theme-sheet" id="theme-sheet" data-theme-sheet role="dialog" aria-label="Theme" hidden>
+          <p class="theme-sheet__label">Mode</p>
+          <div class="theme-sheet__row" role="radiogroup" aria-label="Colour mode">
+            <button type="button" role="radio" data-theme-opt="system" aria-checked="false">System</button>
+            <button type="button" role="radio" data-theme-opt="light" aria-checked="false">Light</button>
+            <button type="button" role="radio" data-theme-opt="dark" aria-checked="false">Dark</button>
+          </div>
+        </div>
       </li>
     </ul>
   </nav>
@@ -78,11 +86,11 @@
     </div>
       </div>
       <div class="foot-bottom">
-        <p class="foot-legal"><span class="foot-legal__mark" aria-hidden="true">©</span><span class="foot-legal__text">2026 Seclusa · <a href="../COPYING.txt">GPL-3.0</a> · <span class="foot-ver">v15.9</span></span></p>
+        <p class="foot-legal"><span class="foot-legal__mark" aria-hidden="true">©</span><span class="foot-legal__text">2026 Seclusa · <a href="../COPYING.txt">GPL-3.0</a> · <span class="foot-ver">v15.10</span></span></p>
         <p class="foot-credit">Made with ❤️ 🇬🇧</p>
       </div>
     </div>
   </footer>
-  <script src="../js/site.js?v=15.9"></script>
+  <script src="../js/site.js?v=15.10"></script>
 </body>
 </html>

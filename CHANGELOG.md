@@ -2,6 +2,19 @@
 
 All notable changes to **SeclusaSite**.
 
+## 15.10 — 2026-11-06
+
+### Fixed
+- Theme opens a System / Light / Dark sheet. System follows the device and is not stored
+- Service worker keeps only the current `?v=` stamp, and the offline page still loads its CSS on a deep link
+- Store tiles match the local apps: Weather 0.7.22, Notes 0.2.12, Calendar 0.3.8, Games 0.1.34, BP 0.1.10, Convert 0.1.3
+
+### Changed
+- CSP `img-src` is `'self'`
+- Removed unused layout CSS, Noto fonts, concept art, and old store badges
+- Asset and service-worker cache version 15.10
+- Sample `_headers` and `.htaccess` for hosts that honour them. GitHub Pages ignores both
+
 ## 15.9 — 2026-11-04
 
 ### Changed

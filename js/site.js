@@ -13,56 +13,76 @@
       localStorage.setItem(key, value);
     } catch (_) { /* private / quota */ }
   };
-  const resolveTheme = () => {
-    const saved = safeGet(THEME_KEY);
-    if (saved === "light" || saved === "dark") return saved;
-    // No saved choice: follow the visitor's system setting, and keep following
-    // it. theme-boot.js has already set data-theme from the same two sources,
-    // so this re-applies the same answer rather than deciding anything new.
-    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  const safeRemove = (key) => {
+    try {
+      localStorage.removeItem(key);
+    } catch (_) { /* private / quota */ }
   };
-  const applyTheme = (theme) => {
+  const lightQuery = window.matchMedia
+    ? window.matchMedia("(prefers-color-scheme: light)")
+    : null;
+  const storedMode = () => {
+    const saved = safeGet(THEME_KEY);
+    if (saved === "light" || saved === "dark" || saved === "system") return saved;
+    return "system";
+  };
+  const systemTheme = () => (lightQuery && lightQuery.matches ? "light" : "dark");
+  const resolveTheme = (mode) => (mode === "light" || mode === "dark" ? mode : systemTheme());
+  const paintChoice = (mode) => {
+    document.querySelectorAll("[data-theme-opt]").forEach((btn) => {
+      btn.setAttribute("aria-checked", btn.getAttribute("data-theme-opt") === mode ? "true" : "false");
+    });
+    document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
+      btn.textContent = "Theme";
+      btn.setAttribute("aria-pressed", mode === "system" ? "false" : "true");
+      btn.title = mode === "system" ? "Theme, following system" : "Theme, " + mode;
+    });
+  };
+  const applyTheme = (mode) => {
+    const theme = resolveTheme(mode);
     docEl.setAttribute("data-theme", theme);
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", theme === "light" ? "#f4f6fa" : "#070b12");
+    paintChoice(mode);
+  };
+  const setSheet = (open) => {
+    document.querySelectorAll("[data-theme-sheet]").forEach((sheet) => {
+      sheet.hidden = !open;
+    });
     document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
-      btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
-      btn.textContent = theme === "dark" ? "Light" : "Dark";
-      btn.title = theme === "dark" ? "Switch to light theme" : "Switch to dark theme";
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
     });
   };
-  applyTheme(resolveTheme());
+  applyTheme(storedMode());
   document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const next = docEl.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      safeSet(THEME_KEY, next);
+    btn.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      const sheet = document.getElementById(btn.getAttribute("aria-controls"));
+      setSheet(!!(sheet && sheet.hidden));
+    });
+  });
+  document.querySelectorAll("[data-theme-opt]").forEach((btn) => {
+    btn.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      const next = btn.getAttribute("data-theme-opt");
+      if (next !== "system" && next !== "light" && next !== "dark") return;
+      if (next === "system") safeRemove(THEME_KEY);
+      else safeSet(THEME_KEY, next);
       applyTheme(next);
     });
   });
-  window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => {
-    if (!safeGet(THEME_KEY)) applyTheme(resolveTheme());
+  document.addEventListener("click", () => setSheet(false));
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key === "Escape") setSheet(false);
   });
+  if (lightQuery) {
+    const onScheme = () => {
+      if (storedMode() === "system") applyTheme("system");
+    };
+    if (lightQuery.addEventListener) lightQuery.addEventListener("change", onScheme);
+    else if (lightQuery.addListener) lightQuery.addListener(onScheme);
+  }
 
-  const normPath = (p) =>
-    String(p || "/")
-      .replace(/\/index\.html$/, "/")
-      .replace(/\/$/, "/") || "/";
-  const path = normPath(location.pathname);
-  // Preview root is /p/ — never treat it as a prefix match for every subpage.
-  const siteRoots = new Set(["/", "/p/"]);
-  document.querySelectorAll(".site-nav .links a").forEach((a) => {
-    try {
-      const href = normPath(new URL(a.getAttribute("href"), location.href).pathname);
-      const exact = href === path;
-      const nested =
-        !siteRoots.has(href) && href.endsWith("/") && path.startsWith(href);
-      if (exact || nested) {
-        a.setAttribute("aria-current", "page");
-      } else {
-        a.removeAttribute("aria-current");
-      }
-    } catch (_) { /* ignore */ }
-  });
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.querySelectorAll(".reveal").forEach((el, i) => {
     el.setAttribute("data-reveal-i", String(i % 12));

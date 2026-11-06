@@ -1,18 +1,47 @@
-const CACHE = "seclusa-site-v15.9";
+const CACHE = "seclusa-site-v15.10";
 const BASE = self.location.pathname.replace(/\/[^/]*$/, "/");
-const V = "15.9";
+const V = "15.10";
 
 /**
  * Whether a URL is one this worker is allowed to keep a copy of.
  *
- * Only two shapes are cacheable: no query at all, and the `?v=` stamp this file
- * emits itself for cache-busting. Everything else still gets its network
- * response — it is simply never written down.
+ * Only two shapes are cacheable: no query at all, and the exact `?v=` stamp
+ * this file emits for cache-busting. Any other query is still fetched — it is
+ * never written down — so a crafted `?v=` cannot fill the cache with copies.
  *
  * `URL.search` includes the leading `?`, so the stamp check must too.
  */
 function cacheable(url) {
-  return url.search === "" || /^\?v=[0-9][\d.]*$/.test(url.search);
+  return url.search === "" || url.search === "?v=" + V;
+}
+
+function escapeAttr(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;");
+}
+
+// The fallback document is served under the failed URL. Relative links would
+// resolve against that URL, so pin them to this worker's scope with <base>.
+function withBase(html) {
+  if (/<base[\s/>]/i.test(html)) return html;
+  const baseHref = escapeAttr(new URL(BASE, self.location.origin).href);
+  return html.replace(/<head[^>]*>/i, (open) => open + '<base href="' + baseHref + '">');
+}
+
+function asPage(res) {
+  if (!res) return Promise.resolve(null);
+  return res.text().then(
+    (html) =>
+      new Response(withBase(html), {
+        status: 200,
+        headers: {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-store",
+        },
+      })
+  );
 }
 const PRECACHE = [
   BASE,
@@ -26,6 +55,18 @@ const PRECACHE = [
   BASE + "icons/icon-192.png?v=" + V,
   BASE + "icons/icon-512.png?v=" + V,
   BASE + "icons/logo.png?v=" + V,
+  BASE + "icons/apple-touch-icon.png?v=" + V,
+  BASE + "icons/weather-192.png?v=" + V,
+  BASE + "icons/notes-192.png?v=" + V,
+  BASE + "icons/calendar-192.png?v=" + V,
+  BASE + "icons/games-192.png?v=" + V,
+  BASE + "icons/blood-pressure-192.png?v=" + V,
+  BASE + "icons/convert-192.png?v=" + V,
+  BASE + "icons/privacy-192.png?v=" + V,
+  BASE + "icons/email.svg",
+  BASE + "icons/github.svg",
+  BASE + "icons/matrix.svg",
+  BASE + "fonts/CascadiaMono.ttf",
 ];
 
 self.addEventListener("install", (e) => {
@@ -48,6 +89,22 @@ self.addEventListener("activate", (e) => {
             .map((k) => caches.delete(k))
         )
       )
+      .then(() => caches.open(CACHE))
+      .then((cache) =>
+        cache.keys().then((reqs) =>
+          Promise.all(
+            reqs.map((req) => {
+              try {
+                const u = new URL(req.url);
+                if (u.origin === self.location.origin && u.search && !cacheable(u)) {
+                  return cache.delete(req);
+                }
+              } catch (_) { /* ignore a bad cache key */ }
+              return false;
+            })
+          )
+        )
+      )
       .then(() => self.clients.claim())
   );
 });
@@ -66,16 +123,30 @@ self.addEventListener("fetch", (e) => {
     e.respondWith(
       fetch(req)
         .then((res) => {
-          if (keep && res && res.status === 200) {
+          if (keep && res && res.status === 200 && res.type === "basic") {
             const copy = res.clone();
-            e.waitUntil(own().then((c) => c.put(req, copy)).catch(() => {}));
+            e.waitUntil(own().then((c) => c.put(url.href, copy)).catch(() => {}));
           }
           return res;
         })
         .catch(() =>
-          ownMatch(req)
-            .then((h) => h || ownMatch(BASE + "offline.html"))
-            .then((h) => h || ownMatch(BASE + "index.html"))
+          ownMatch(req).then((hit) => {
+            if (hit) return hit;
+            return ownMatch(BASE + "offline.html")
+              .then((res) => res || ownMatch(BASE + "index.html"))
+              .then(asPage)
+              .then(
+                (page) =>
+                  page ||
+                  new Response("Offline", {
+                    status: 503,
+                    headers: {
+                      "Content-Type": "text/plain; charset=utf-8",
+                      "Cache-Control": "no-store",
+                    },
+                  })
+              );
+          })
         )
     );
     return;
@@ -88,12 +159,12 @@ self.addEventListener("fetch", (e) => {
         .then((res) => {
           if (keep && res && res.status === 200 && res.type === "basic") {
             const copy = res.clone();
-            e.waitUntil(own().then((c) => c.put(req, copy)).catch(() => {}));
+            e.waitUntil(own().then((c) => c.put(url.href, copy)).catch(() => {}));
           }
           return res;
         })
-        .catch(() => hit);
+        .catch(() => hit || new Response("", { status: 504, statusText: "Gateway Timeout" }));
       return hit || net;
-    })
+    }).catch(() => new Response("", { status: 504, statusText: "Gateway Timeout" }))
   );
 });

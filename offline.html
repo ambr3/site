@@ -5,18 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; worker-src 'self'; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; img-src 'self'; font-src 'self'; style-src 'self'; script-src 'self'; worker-src 'self'; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests">
   <meta name="theme-color" content="#070b12">
   <title>Offline | Seclusa</title>
-  <script src="js/theme-boot.js?v=15.9"></script>
-  <link rel="stylesheet" href="css/site.css?v=15.9">
+  <script src="js/theme-boot.js?v=15.10"></script>
+  <link rel="stylesheet" href="css/site.css?v=15.10">
 </head>
 <body>
   <nav class="site-nav" aria-label="Primary">
     <a class="brand" href="./">
-      <img class="brand-mark" src="icons/icon-192.png?v=15.9" width="40" height="40" alt="Seclusa">
+      <img class="brand-mark" src="icons/icon-192.png?v=15.10" width="40" height="40" alt="Seclusa">
     </a>
-    <ul class="links"></ul>
+    <ul class="links">
+      <li class="theme-menu">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-expanded="false" aria-haspopup="dialog" aria-controls="theme-sheet">Theme</button>
+        <div class="theme-sheet" id="theme-sheet" data-theme-sheet role="dialog" aria-label="Theme" hidden>
+          <p class="theme-sheet__label">Mode</p>
+          <div class="theme-sheet__row" role="radiogroup" aria-label="Colour mode">
+            <button type="button" role="radio" data-theme-opt="system" aria-checked="false">System</button>
+            <button type="button" role="radio" data-theme-opt="light" aria-checked="false">Light</button>
+            <button type="button" role="radio" data-theme-opt="dark" aria-checked="false">Dark</button>
+          </div>
+        </div>
+      </li>
+    </ul>
   </nav>
   <main class="wrap offline-main">
     <p class="label">// offline</p>
@@ -24,5 +36,6 @@
     <p class="sub">This page is cached on your device. Reconnect to load the latest site.</p>
     <p class="source-browse"><a href="./">← Back home</a></p>
   </main>
+  <script src="js/site.js?v=15.10"></script>
 </body>
 </html>
