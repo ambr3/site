@@ -59,17 +59,17 @@ fi
 
 # Store tile versions vs sibling app manifests (when present).
 declare -A expect=(
-  [weather]="0.7.22"
-  [notes]="0.2.13"
-  [calendar]="0.3.9"
+  [weather]="0.7.23"
+  [notes]="0.2.14"
+  [calendar]="0.3.10"
   [games]="0.1.34"
-  [bp]="0.1.11"
+  [bp]="0.1.12"
   [convert]="0.1.4"
-  [lockdown]="0.1.2"
-  [blocks]="0.1.0"
-  [klondike]="0.1.1"
-  [munch]="0.1.1"
-  [pyramid]="0.1.1"
+  [lockdown]="0.1.3"
+  [blocks]="0.1.1"
+  [klondike]="0.1.3"
+  [munch]="0.1.2"
+  [pyramid]="0.1.2"
   [word]="0.1.1"
 )
 declare -A label=(

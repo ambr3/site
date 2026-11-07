@@ -2,6 +2,13 @@
 
 All notable changes to **SeclusaSite**.
 
+## 15.16 — 2026-11-07
+
+### Changed
+- Notes and Calendar store glyphs refreshed from the new app icons
+- Store tiles synced: Notes 0.2.14, Calendar 0.3.10, Weather 0.7.23, BP 0.1.12, Blocks 0.1.1, Klondike 0.1.3, Munch 0.1.2, Pyramid 0.1.2, Lockdown 0.1.3
+- Asset and service-worker cache version 15.16
+
 ## 15.15 — 2026-11-06
 
 ### Changed
