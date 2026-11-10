@@ -2,6 +2,18 @@
 
 All notable changes to **SeclusaSite**.
 
+## 16 — 2026-11-10
+
+Site versions are whole numbers from here on (16, 17, 18…).
+
+### Changed
+- Store layout: Apps/About nav, category counts, larger icons, light/dark tile surfaces; hero is logo + Latin + store link
+- Store tiles synced: Weather 0.8.0, Calendar 0.3.11, BP 0.2.0, Lockdown 0.1.34, Klondike 0.2.1, Pyramid 0.2.0
+- About page explains why Seclusa ships PWAs for privacy and security (plain language, sourced)
+- Tile entrance animation is progressive enhancement (tiles stay visible if JS fails)
+- Asset and service-worker cache version 16
+
+
 ## 15.16 — 2026-11-07
 
 ### Changed

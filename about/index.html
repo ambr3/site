@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Why Seclusa builds privacy-first PWAs.">
+  <meta name="description" content="Why ambr3 builds Seclusa PWAs — plain talk on privacy, security, and the hard limits.">
   <meta name="theme-color" content="#070b12">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
@@ -13,25 +13,27 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Seclusa">
   <meta property="og:title" content="About | Seclusa">
-  <meta property="og:description" content="Why Seclusa builds privacy-first PWAs.">
+  <meta property="og:description" content="Why ambr3 builds Seclusa PWAs — plain talk on privacy, security, and the hard limits.">
   <meta property="og:url" content="https://ambr3.github.io/site/about/">
   <meta property="og:image" content="https://ambr3.github.io/site/icons/social.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="About | Seclusa">
-  <meta name="twitter:description" content="Why Seclusa builds privacy-first PWAs.">
+  <meta name="twitter:description" content="Why ambr3 builds Seclusa PWAs — plain talk on privacy, security, and the hard limits.">
   <meta name="twitter:image" content="https://ambr3.github.io/site/icons/social.png">
   <link rel="alternate" type="application/rss+xml" title="Seclusa releases" href="../feed.xml">
-  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png?v=15.16">
-  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png?v=15.16">
-  <script src="../js/theme-boot.js?v=15.16"></script>
-  <link rel="stylesheet" href="../css/site.css?v=15.16">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png?v=16">
+  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png?v=16">
+  <script src="../js/theme-boot.js?v=16"></script>
+  <link rel="stylesheet" href="../css/site.css?v=16">
 </head>
-<body data-site-v="15.16">
+<body data-site-v="16">
   <nav class="site-nav" aria-label="Primary">
     <a class="brand" href="../">
-      <img class="brand-mark" src="../icons/icon-192.png?v=15.16" width="40" height="40" alt="Seclusa">
+      <img class="brand-mark" src="../icons/icon-192.png?v=16" width="40" height="40" alt="Seclusa">
     </a>
     <ul class="links">
+      <li><a href="../#apps">Apps</a></li>
+      <li><a href="../about/" aria-current="page">About</a></li>
       <li class="theme-menu">
         <button type="button" class="theme-toggle" data-theme-toggle aria-expanded="false" aria-haspopup="dialog" aria-controls="theme-sheet">Theme</button>
         <div class="theme-sheet" id="theme-sheet" data-theme-sheet role="dialog" aria-label="Theme" hidden>
@@ -49,16 +51,97 @@
   <main>
     <header class="page-head wrap">
       <p class="label">// About</p>
-      <h1>About</h1>
+      <h1>Why I make PWAs</h1>
+      <p>Plain talk. Good bits and bad bits. No sales pitch.</p>
     </header>
 
     <div class="about-frame wrap">
       <section class="about-body" id="about">
         <section class="about-section">
-          <p>I make privacy-first PWAs so your data can stay on your device — no accounts, no tracking, no phoning home.</p>
-          <p>A PWA runs in the browser sandbox, needs HTTPS, and asks for permissions one at a time instead of taking a broad foothold on install.</p>
-          <p>They install like apps, work offline, and still let privacy browsers and normal site controls apply.</p>
-          <p>Everything here is open source so you can read the code yourself.</p>
+          <p>I’m ambr3. I make Seclusa apps as Progressive Web Apps (PWAs). Fancy name, simple idea: a website you can install, that can work offline, and that runs inside your browser like other websites do.</p>
+          <p>I care about privacy first, then security. PWAs help with both when you build them the hard way: data on your device, no accounts, no trackers. That is usually better for privacy than a typical store app. It is <strong>not</strong> automatically safer than every native app forever. I will say the bad parts too.</p>
+        </section>
+
+        <section class="about-section">
+          <h2>More private</h2>
+          <p>Privacy means: who can see your stuff, and does anyone need to?</p>
+          <h3>Your data stays on your phone</h3>
+          <p>The apps keep notes, calendar events, blood-pressure readings, game scores and so on in browser storage on <em>your</em> device (things like <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" rel="noopener noreferrer">IndexedDB</a>). They do not upload that to me. Weather is the main exception: it asks <a href="https://open-meteo.com/" rel="noopener noreferrer">Open-Meteo</a> for forecasts, and the app says so.</p>
+          <p>No account means no login for me to sell, and no cloud copy of your life sitting on a company server by default.</p>
+          <h3>No ads, no spy codes</h3>
+          <p>A lot of store apps ship with ad or analytics kits. Those can read a phone advertising ID (<a href="https://privacy.ca.gov/2025/09/limit-mobile-app-tracking/" rel="noopener noreferrer">IDFA on iPhone, GAID on Android</a>) and help follow you across apps. Normal websites and PWAs <a href="https://experienceleague.adobe.com/en/docs/audience-manager/user-guide/features/data-sources/global-data-sources" rel="noopener noreferrer">cannot read those IDs</a>.</p>
+          <p>They can still track you with cookies or sneaky scripts — <em>if</em> the maker adds them. Seclusa does not. No ads. No analytics. No third-party script or font CDNs that report your visit. If I do not load someone else’s code, there is no someone else to phone home to.</p>
+          <h3>You can still wipe it</h3>
+          <p>Because it is a website under the hood, your browser’s normal tools still work: clear site data, block trackers, revoke permissions. To really remove an installed PWA, clear that site’s data / uninstall it. That is clearer than hoping a store app and every kit inside it went quiet.</p>
+        </section>
+
+        <section class="about-section">
+          <h2>More secure</h2>
+          <p>Security means: if something goes wrong, how much damage can the code do?</p>
+          <h3>Stuck in its own box</h3>
+          <p>A PWA only “owns” its own website address (its origin). Under the browser’s <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" rel="noopener noreferrer">same-origin policy</a>, its storage and permissions stay in that box. Bad script in the app can mess with <em>that</em> app’s data. It does not get free run of your whole phone, your files, or your other apps — a <a href="https://progressivewebapps.com/fundamentals/pwa-vs-native/" rel="noopener noreferrer">smaller blast radius</a> than native code that already has lots of permissions.</p>
+          <h3>HTTPS, and locked doors</h3>
+          <p>The offline bit uses a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" rel="noopener noreferrer">service worker</a>. Browsers only allow that on <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Secure_Contexts" rel="noopener noreferrer">secure pages</a> (HTTPS). That stops a random café Wi‑Fi attacker from easily slipping in a fake offline shell. See also Chromium’s <a href="https://www.chromium.org/Home/chromium-security/security-faq/service-worker-security-faq/" rel="noopener noreferrer">Service Worker Security FAQ</a>.</p>
+          <p>Seclusa apps also use strict <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP" rel="noopener noreferrer">Content-Security-Policy</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Permissions_Policy" rel="noopener noreferrer">Permissions-Policy</a> rules. In plain English: the page is told “no camera, no mic, no payment APIs” and “only load my own scripts.”</p>
+          <h3>Ask one thing at a time</h3>
+          <p>If a web app wants something powerful, the browser usually asks you first, for that site only. You can turn it off later in settings. Phones do something similar for native apps now, but store apps still often ask for a long list, and ad kits can ride along. Seclusa asks for almost nothing.</p>
+          <h3>Your browser gets the security patches</h3>
+          <p>When Chrome or Firefox updates, the sandbox under every PWA gets those fixes. You are not waiting for every app maker to rebuild a store binary for that layer. The app’s own code still updates from the website when you are online — that is the next section’s worry.</p>
+        </section>
+
+        <section class="about-section">
+          <h2>Honest limits</h2>
+          <p>A PWA is not magic. If an app phones home, tracks you, or asks for everything, the platform will not save you. Privacy comes from how the app is built: local data, no accounts, no trackers, open source you can read.</p>
+          <h3>The big worry, simply</h3>
+          <p>When you open a Seclusa app, your phone does not keep a sealed copy forever. It can ask the website “got any updates?” and download whatever that website sends.</p>
+          <p>If a bad person ever got control of that website — for example by taking over the GitHub login — they could send poisoned app code next time you are online. Your browser would run it, thinking it is still Seclusa.</p>
+          <p>That is the <a href="https://www.privacyguides.org/articles/2024/11/30/pwa-vs-iwa/" rel="noopener noreferrer">Privacy Guides</a> point: with a normal website or PWA, you have to trust whoever controls the site every time it updates — not only the first time you installed it. For something like a crypto messenger, that worry is a really big deal. For notes and weather on your own device, it still matters, but the prize for an attacker is smaller.</p>
+          <h3>What helps — and what does not</h3>
+          <p>Seclusa apps are just <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages" rel="noopener noreferrer">static files on GitHub Pages</a>. No fancy server. No database. No login cloud of your notes to steal. That makes the usual “hack the app server” path harder.</p>
+          <p>Open source means the code is public, so sneaky changes can show up in git. It does <strong>not</strong> mean “lots safer” by itself. Publishing the code only helps if someone actually looks. It does not stop a bad update from going live.</p>
+          <p>Static hosting also does <strong>not</strong> cancel the Privacy Guides worry. If someone controls the hosting account, they can still publish bad files. Security people treat that account like a <a href="https://scs.owasp.org/handbooks/02-dns-hosting-security/part5-hosting-and-web-presence/" rel="noopener noreferrer">signing key</a>. A bad update can also stick a lasting <a href="https://www.chromium.org/Home/chromium-security/security-faq/service-worker-security-faq/" rel="noopener noreferrer">service worker</a> on your device until you clear it.</p>
+          <p>Short version: static + local + no accounts makes the worst case harder and less worth attacking. It is not “safe because static.”</p>
+          <h3>GitHub 2FA — does it help?</h3>
+          <p>Yes. A lot. Against “someone guessed or stole my password,” two-factor authentication is a big upgrade.</p>
+          <p>It does <strong>not</strong> make takeover impossible. Fake login pages can still trick some phone-app codes in real time. Stolen sessions or access tokens can push code without typing 2FA again. GitHub has warned about this and says <a href="https://github.blog/news-insights/company-news/security-alert-new-phishing-campaign-targets-github-users/" rel="noopener noreferrer">hardware security keys</a> are stronger than app codes for that.</p>
+          <h3>CodeQL on GitHub — does it help?</h3>
+          <p>I also run <a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql" rel="noopener noreferrer">CodeQL</a> code scanning on the GitHub repos. That is an automatic checker that looks through the source for known dangerous patterns (things like injection bugs and other common security mistakes).</p>
+          <p>It helps catch some accidents in code I write. It does <strong>not</strong> stop a stolen account from publishing bad files, and it will not catch every bug — only problems its rules know how to spot. Think of it as a seatbelt for coding mistakes, not a lock on the hosting account.</p>
+          <h3>AI helpers and anyone who can push</h3>
+          <p>I sometimes use AI coding tools (like Cursor) that can change files and, when I allow it, push to GitHub. Those tools sit <strong>inside</strong> the same trust line as a human with write access.</p>
+          <p>If bad code lands on <code>main</code> / GitHub Pages — because of a bug, a bad instruction, a compromised session, or me clicking “approve” without reading — that is the same class of failure as a stolen GitHub login: poisoned files on the live site. Mitigations that help: I approve pushes, I can read the diff, and open source leaves a public trail. The AI is not outside the threat model. It is one more hand that can publish.</p>
+          <h3>Kill switch</h3>
+          <p>If something ever looked wrong: clear the site’s data, remove the PWA, and only use it again after the real site is fixed. See also <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data" rel="noopener noreferrer">Clear-Site-Data</a>.</p>
+        </section>
+
+        <section class="about-section">
+          <h2>Why Seclusa</h2>
+          <p><em>Seclusa</em> means private, secluded, set apart. I make these apps for myself and for anyone who wants useful tools without handing their life to a store profile or a sync server.</p>
+          <p>Everything here is open source on <a href="https://github.com/ambr3" rel="noopener noreferrer">GitHub</a>. Browse the <a href="../#apps">app store</a>, install what you need, and keep your data yours.</p>
+        </section>
+
+        <section class="about-section">
+          <h2>Sources</h2>
+          <p>I am not asking you to take my word for it. The claims above lean on these write-ups:</p>
+          <ul class="about-sources">
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" rel="noopener noreferrer">MDN — Service Worker API</a> (HTTPS / secure contexts)</li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Secure_Contexts" rel="noopener noreferrer">MDN — Secure contexts</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" rel="noopener noreferrer">MDN — Same-origin policy</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" rel="noopener noreferrer">MDN — IndexedDB</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP" rel="noopener noreferrer">MDN — Content Security Policy</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Permissions_Policy" rel="noopener noreferrer">MDN — Permissions Policy</a></li>
+            <li><a href="https://www.chromium.org/Home/chromium-security/security-faq/service-worker-security-faq/" rel="noopener noreferrer">Chromium — Service Worker Security FAQ</a></li>
+            <li><a href="https://progressivewebapps.com/fundamentals/pwa-vs-native/" rel="noopener noreferrer">PWA vs native — origin sandbox and permissions</a></li>
+            <li><a href="https://privacy.ca.gov/2025/09/limit-mobile-app-tracking/" rel="noopener noreferrer">California Privacy — mobile advertising IDs and app SDKs</a></li>
+            <li><a href="https://experienceleague.adobe.com/en/docs/audience-manager/user-guide/features/data-sources/global-data-sources" rel="noopener noreferrer">Adobe Audience Manager — web apps cannot read device ad IDs</a></li>
+            <li><a href="https://www.privacyguides.org/articles/2024/11/30/pwa-vs-iwa/" rel="noopener noreferrer">Privacy Guides — PWA server-trust limits</a></li>
+            <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages" rel="noopener noreferrer">GitHub Docs — Pages is static site hosting</a></li>
+            <li><a href="https://scs.owasp.org/handbooks/02-dns-hosting-security/part5-hosting-and-web-presence/" rel="noopener noreferrer">OWASP — hosting account controls published content</a></li>
+            <li><a href="https://github.blog/news-insights/company-news/security-alert-new-phishing-campaign-targets-github-users/" rel="noopener noreferrer">GitHub Blog — 2FA phishing; prefer hardware keys</a></li>
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql" rel="noopener noreferrer">GitHub Docs — CodeQL code scanning</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data" rel="noopener noreferrer">MDN — Clear-Site-Data</a></li>
+            <li><a href="https://open-meteo.com/" rel="noopener noreferrer">Open-Meteo</a> (Weather’s only forecast API)</li>
+          </ul>
         </section>
       </section>
     </div>
@@ -86,11 +169,11 @@
     </div>
       </div>
       <div class="foot-bottom">
-        <p class="foot-legal"><span class="foot-legal__mark" aria-hidden="true">©</span><span class="foot-legal__text">2026 Seclusa · <a href="../COPYING.txt">GPL-3.0</a> · <span class="foot-ver">v15.16</span></span></p>
+        <p class="foot-legal"><span class="foot-legal__mark" aria-hidden="true">©</span><span class="foot-legal__text">2026 Seclusa · <a href="../COPYING.txt">GPL-3.0</a> · <span class="foot-ver">v16</span></span></p>
         <p class="foot-credit">Made with ❤️ 🇬🇧</p>
       </div>
     </div>
   </footer>
-  <script src="../js/site.js?v=15.16"></script>
+  <script src="../js/site.js?v=16"></script>
 </body>
 </html>

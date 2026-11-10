@@ -22,6 +22,7 @@
   const theme = saved === "light" || saved === "dark" ? saved : system();
 
   document.documentElement.setAttribute("data-theme", theme);
+  document.documentElement.classList.add("js");
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) meta.setAttribute("content", theme === "light" ? "#f4f6fa" : "#070b12");
 })();

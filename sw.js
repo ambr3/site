@@ -1,6 +1,6 @@
-const CACHE = "seclusa-site-v15.16";
+const CACHE = "seclusa-site-v16";
 const BASE = self.location.pathname.replace(/\/[^/]*$/, "/");
-const V = "15.16";
+const V = "16";
 
 /**
  * Whether a URL is one this worker is allowed to keep a copy of.

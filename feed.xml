@@ -4,7 +4,14 @@
     <title>Seclusa</title>
     <link>https://ambr3.github.io/site/</link>
     <description>Privacy-first Seclusa apps. Source on GitHub.</description>
-    <lastBuildDate>Sat, 07 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>App store layout and why PWAs</title>
+      <link>https://ambr3.github.io/site/about/</link>
+      <guid isPermaLink="true">https://ambr3.github.io/site/#about-pwa-16</guid>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Store feels more like an app store. About explains why Seclusa builds PWAs for privacy and security.</description>
+    </item>
     <item>
       <title>Notes and Calendar store icons</title>
       <link>https://ambr3.github.io/site/#apps</link>
