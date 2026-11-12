@@ -2,6 +2,12 @@
 
 All notable changes to **SeclusaSite**.
 
+## 17 — 2026-11-12
+
+### Changed
+- Seclusa Lockdown store tile is Coming soon (no Open / Source links)
+- Asset and service-worker cache version 17
+
 ## 16 — 2026-11-10
 
 Site versions are whole numbers from here on (16, 17, 18…).

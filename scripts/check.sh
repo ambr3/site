@@ -65,7 +65,6 @@ declare -A expect=(
   [games]="0.1.34"
   [bp]="0.2.0"
   [convert]="0.1.4"
-  [lockdown]="0.1.34"
   [blocks]="0.1.1"
   [klondike]="0.2.1"
   [munch]="0.1.2"
@@ -79,7 +78,6 @@ declare -A label=(
   [games]="Seclusa Games"
   [bp]="Seclusa BP"
   [convert]="Seclusa Convert"
-  [lockdown]="Seclusa Lockdown"
   [blocks]="Seclusa Blocks"
   [klondike]="Seclusa Klondike"
   [munch]="Seclusa Munch"
@@ -87,7 +85,7 @@ declare -A label=(
   [word]="Word Puzzle"
 )
 
-for key in weather notes calendar bp convert games lockdown blocks klondike munch pyramid word; do
+for key in weather notes calendar bp convert games blocks klondike munch pyramid word; do
   ver="${expect[$key]}"
   name="${label[$key]}"
   if grep -A6 "<h2>${name}</h2>" "$html" | grep -q "v${ver}"; then
@@ -110,6 +108,13 @@ if grep -A12 "<h2>Seclusa Privacy</h2>" "$html" | grep -q "Coming soon" \
   ok "store tile Seclusa Privacy is Coming soon (no live links)"
 else
   bad "store tile Seclusa Privacy should be Coming soon without Open/Source links"
+fi
+
+if grep -A12 "<h2>Seclusa Lockdown</h2>" "$html" | grep -q "Coming soon" \
+  && ! grep -A14 "<h2>Seclusa Lockdown</h2>" "$html" | grep -qE 'href="https://(ambr3\.github\.io/seclusa-lockdown/|github\.com/ambr3/seclusa-lockdown)"'; then
+  ok "store tile Seclusa Lockdown is Coming soon (no live links)"
+else
+  bad "store tile Seclusa Lockdown should be Coming soon without Open/Source links"
 fi
 
 read_manifest_version() {
@@ -140,7 +145,6 @@ check_app calendar calendar manifest.webmanifest
 check_app games seclusa-games manifest.json
 check_app bp blood-pressure manifest.json
 check_app convert convert manifest.json
-check_app lockdown seclusa-lockdown manifest.json
 check_app blocks seclusa-blocks manifest.json
 check_app klondike seclusa-klondike manifest.json
 check_app munch seclusa-munch manifest.json
