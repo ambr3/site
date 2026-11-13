@@ -62,32 +62,30 @@ declare -A expect=(
   [weather]="0.8.0"
   [notes]="0.2.14"
   [calendar]="0.3.11"
-  [games]="0.1.34"
   [bp]="0.2.0"
   [convert]="0.1.4"
   [blocks]="0.1.1"
   [klondike]="0.2.1"
   [munch]="0.1.2"
   [pyramid]="0.2.0"
-  [word]="0.1.1"
+  [word]="0.3.0"
   [tds]="0.1.65"
 )
 declare -A label=(
   [weather]="Seclusa Weather"
   [notes]="Seclusa Notes"
   [calendar]="Seclusa Calendar"
-  [games]="Seclusa Games"
   [bp]="Seclusa BP"
   [convert]="Seclusa Convert"
   [blocks]="Seclusa Blocks"
   [klondike]="Seclusa Klondike"
   [munch]="Seclusa Munch"
   [pyramid]="Seclusa Pyramid"
-  [word]="Word Puzzle"
+  [word]="Seclusa Word Puzzle"
   [tds]="Seclusa TDS"
 )
 
-for key in weather notes calendar bp convert games blocks klondike munch pyramid word tds; do
+for key in weather notes calendar bp convert blocks klondike munch pyramid word tds; do
   ver="${expect[$key]}"
   name="${label[$key]}"
   if grep -A6 "<h2>${name}</h2>" "$html" | grep -q "v${ver}"; then
@@ -97,12 +95,10 @@ for key in weather notes calendar bp convert games blocks klondike munch pyramid
   fi
 done
 
-if grep -A14 "<h2>Seclusa Games</h2>" "$html" | grep -q "Leaving soon" \
-  && grep -A18 "<h2>Seclusa Games</h2>" "$html" | grep -q 'href="https://ambr3.github.io/games/"' \
-  && grep -A18 "<h2>Seclusa Games</h2>" "$html" | grep -q 'href="https://github.com/ambr3/games"'; then
-  ok "store tile Seclusa Games is Leaving soon (Open/Source kept)"
+if ! grep -q "<h2>Seclusa Games</h2>" "$html"; then
+  ok "store no longer lists Seclusa Games hub"
 else
-  bad "store tile Seclusa Games should be Leaving soon with Open/Source links"
+  bad "store should not list Seclusa Games hub"
 fi
 
 if grep -A12 "<h2>Seclusa Privacy</h2>" "$html" | grep -q "Coming soon" \
@@ -144,7 +140,6 @@ check_app() {
 check_app weather weather manifest.json
 check_app notes notes manifest.webmanifest
 check_app calendar calendar manifest.webmanifest
-check_app games seclusa-games manifest.json
 check_app bp blood-pressure manifest.json
 check_app convert convert manifest.json
 check_app blocks seclusa-blocks manifest.json

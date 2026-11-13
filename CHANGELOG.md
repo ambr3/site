@@ -2,6 +2,13 @@
 
 All notable changes to **SeclusaSite**.
 
+## 20 — 2026-11-13
+
+### Changed
+- Removed Seclusa Games hub tile from the store
+- Seclusa Word Puzzle tile synced to multi-mode **0.3.0**
+- Asset and service-worker cache version 20
+
 ## 19 — 2026-11-13
 
 ### Fixed
