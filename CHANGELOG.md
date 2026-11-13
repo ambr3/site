@@ -2,6 +2,12 @@
 
 All notable changes to **SeclusaSite**.
 
+## 18 — 2026-11-13
+
+### Changed
+- Seclusa Lockdown store tile renamed to Seclusa TDS and made live (Open / Source)
+- Asset and service-worker cache version 18
+
 ## 17 — 2026-11-12
 
 ### Changed

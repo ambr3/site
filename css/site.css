@@ -1387,7 +1387,7 @@ a.app-launch:hover {
 .app-icon--munch { --glyph: url("../icons/munch-glyph.png"); }
 .app-icon--pyramid { --glyph: url("../icons/pyramid-glyph.png"); }
 .app-icon--word-puzzle { --glyph: url("../icons/word-puzzle-glyph.png"); }
-.app-icon--lockdown { --glyph: url("../icons/lockdown-glyph.png"); }
+.app-icon--tds { --glyph: url("../icons/tds-glyph.png"); }
 .app-icon--bp { --glyph: url("../icons/blood-pressure-glyph.png"); }
 .app-icon--convert { --glyph: url("../icons/convert-glyph.png"); }
 .app-icon--privacy { --glyph: url("../icons/privacy-glyph.png"); }

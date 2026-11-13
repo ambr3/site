@@ -70,6 +70,7 @@ declare -A expect=(
   [munch]="0.1.2"
   [pyramid]="0.2.0"
   [word]="0.1.1"
+  [tds]="0.1.65"
 )
 declare -A label=(
   [weather]="Seclusa Weather"
@@ -83,9 +84,10 @@ declare -A label=(
   [munch]="Seclusa Munch"
   [pyramid]="Seclusa Pyramid"
   [word]="Word Puzzle"
+  [tds]="Seclusa TDS"
 )
 
-for key in weather notes calendar bp convert games blocks klondike munch pyramid word; do
+for key in weather notes calendar bp convert games blocks klondike munch pyramid word tds; do
   ver="${expect[$key]}"
   name="${label[$key]}"
   if grep -A6 "<h2>${name}</h2>" "$html" | grep -q "v${ver}"; then
@@ -110,11 +112,11 @@ else
   bad "store tile Seclusa Privacy should be Coming soon without Open/Source links"
 fi
 
-if grep -A12 "<h2>Seclusa Lockdown</h2>" "$html" | grep -q "Coming soon" \
-  && ! grep -A14 "<h2>Seclusa Lockdown</h2>" "$html" | grep -qE 'href="https://(ambr3\.github\.io/seclusa-lockdown/|github\.com/ambr3/seclusa-lockdown)"'; then
-  ok "store tile Seclusa Lockdown is Coming soon (no live links)"
+if grep -A18 "<h2>Seclusa TDS</h2>" "$html" | grep -q 'href="https://ambr3.github.io/seclusa-tds/"' \
+  && grep -A18 "<h2>Seclusa TDS</h2>" "$html" | grep -q 'href="https://github.com/ambr3/seclusa-tds"'; then
+  ok "store tile Seclusa TDS has Open/Source links"
 else
-  bad "store tile Seclusa Lockdown should be Coming soon without Open/Source links"
+  bad "store tile Seclusa TDS should link to Pages and GitHub"
 fi
 
 read_manifest_version() {
@@ -150,6 +152,7 @@ check_app klondike seclusa-klondike manifest.json
 check_app munch seclusa-munch manifest.json
 check_app pyramid seclusa-pyramid manifest.json
 check_app word seclusa-word-puzzle manifest.json
+check_app tds seclusa-tds manifest.json
 
 # apps/ redirect should carry the same privacy/security meta posture.
 if grep -q 'Content-Security-Policy' "$ROOT/apps/index.html" \
