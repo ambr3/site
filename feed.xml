@@ -6,6 +6,13 @@
     <description>Privacy-first Seclusa apps. Source on GitHub.</description>
     <lastBuildDate>Fri, 13 Nov 2026 00:00:00 +0000</lastBuildDate>
     <item>
+      <title>Seclusa TDS store icon fix</title>
+      <link>https://ambr3.github.io/site/#apps</link>
+      <guid isPermaLink="true">https://ambr3.github.io/site/#apps-tds-glyph-19</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 +0000</pubDate>
+      <description>TDS store glyph fixed for the masked tile (white silhouette on transparent).</description>
+    </item>
+    <item>
       <title>Seclusa TDS is live</title>
       <link>https://ambr3.github.io/site/#apps</link>
       <guid isPermaLink="true">https://ambr3.github.io/site/#apps-tds-18</guid>

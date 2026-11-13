@@ -2,6 +2,14 @@
 
 All notable changes to **SeclusaSite**.
 
+## 19 — 2026-11-13
+
+### Fixed
+- Seclusa TDS store glyph (white-on-transparent mask; was opaque app icon)
+
+### Changed
+- Asset and service-worker cache version 19
+
 ## 18 — 2026-11-13
 
 ### Changed
