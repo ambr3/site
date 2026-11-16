@@ -245,6 +245,9 @@ test("apps filter by category and search", () => {
     "bitwarden", "posteo", "magic-earth", "bitwarden-auth", "grapheneos"
   ].forEach((id) => assert.ok(fav.some((a) => a.id === id), id));
   assert.ok(fav.every((a) => a.pick === "Personal favorite"));
+  const favChip = PrivacyApps.filterApps({ category: "favorites" });
+  assert.ok(favChip.length >= 10);
+  assert.ok(favChip.every((a) => a.pick === "Personal favorite"));
   const stores = PrivacyApps.filterApps({ category: "stores" });
   assert.deepEqual(stores.map((a) => a.id), ["play-store", "obtainium", "fdroid"]);
   const byLabel = PrivacyApps.filterApps({ query: "app stores" });

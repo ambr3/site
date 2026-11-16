@@ -35,7 +35,7 @@
       platforms: ["Desktop", "iOS", "Android"],
       url: "https://brave.com/",
       good: [
-        note("On desktop, Chromium locks each site into its own sandboxed process and stops that process reading another site’s data. On Android, full site-per-process isolation is not the default.", "https://chromium.googlesource.com/chromium/src/+/main/docs/process_model_and_site_isolation.md"),
+        note("On desktop, Chromium locks each site into its own sandboxed process and stops that process reading another site’s data.", "https://chromium.googlesource.com/chromium/src/+/main/docs/process_model_and_site_isolation.md"),
         note("Shields block trackers and third-party ads by default.", "https://brave.com/shields/")
       ],
       bad: [
@@ -52,11 +52,11 @@
       url: "https://www.mozilla.org/firefox/",
       good: [
         note("Total Cookie Protection gives each website its own cookie jar, so a cookie set on one site is not shared with other sites. Mozilla’s post says this is the desktop default.", "https://blog.mozilla.org/en/products/firefox/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/"),
-        note("Firefox’s own site says known trackers are blocked automatically, and that Mozilla does not sell your personal data.", "https://www.mozilla.org/firefox/")
+        note("Firefox’s own site says known trackers are blocked automatically.", "https://www.mozilla.org/firefox/")
       ],
       bad: [
         note("Chromium’s desktop default puts each site in its own sandboxed process. Firefox’s containment story is weaker than that model, which matters for exploit damage.", "https://chromium.googlesource.com/chromium/src/+/main/docs/process_model_and_site_isolation.md"),
-        note("Mozilla’s April 2026 post says website isolation is off in Firefox for Android release, and that Nightly runs a partial version. A later comment on that page says the release experiment was removed in 159.", "https://connect.mozilla.org/t5/discussions/fission-goes-live-on-android-please-share-your-feedback/m-p/137446")
+        note("On Android, website isolation is still not the Release default. Mozilla’s April 2026 post described it as off on Release with partial Nightly; a later comment says the Release Labs experiment was removed in 159.", "https://connect.mozilla.org/t5/discussions/fission-goes-live-on-android-please-share-your-feedback/m-p/137446")
       ]
     },
     {
@@ -71,8 +71,7 @@
         note("Mullvad’s page says the browser is free and open source with or without the VPN, and that telemetry has been removed.", "https://mullvad.net/browser")
       ],
       bad: [
-        note("The Tor network is removed, so this browser does not hide your IP by itself. Without a VPN, sites see your address.", "https://mullvad.net/browser"),
-        note("The browser is built from Tor Browser’s Firefox base, not Chromium’s site-isolation model.")
+        note("The Tor network is removed, so this browser does not hide your IP by itself. Without a VPN, sites see your address.", "https://mullvad.net/browser")
       ]
     },
     {
@@ -100,7 +99,7 @@
       url: "https://www.apple.com/safari/",
       good: [
         note("This 2020 WebKit post says Intelligent Tracking Prevention blocks third-party cookies by default, and deletes a site’s script-writable storage after seven days without a visit.", "https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/"),
-        note("Lockdown Mode is optional and off unless you turn it on. Apple describes it as extreme protection for people who may be personally targeted, and it limits complex web technologies.", "https://support.apple.com/en-us/105120")
+        note("Apple offers Lockdown Mode for people who may be personally targeted. It limits complex web technologies.", "https://support.apple.com/en-us/105120")
       ],
       bad: [
         note("App Store rule 2.5.6 requires browsers to use WebKit. A developer can apply for an entitlement to ship another engine in the EU and Japan.", "https://developer.apple.com/app-store/review/guidelines/"),
@@ -117,7 +116,7 @@
       url: "https://ublockorigin.com/",
       good: [
         note("It blocks ads and trackers with public lists, including EasyList and EasyPrivacy.", "https://github.com/gorhill/uBlock"),
-        note("The project says it works best on Firefox and is still on Firefox Add-ons. The Chrome Web Store copy was removed on 31 August 2026.", "https://github.com/gorhill/uBlock")
+        note("The project says it works best on Firefox and is still on Firefox Add-ons.", "https://github.com/gorhill/uBlock")
       ],
       bad: [
         note("The Chrome Web Store copy of uBlock Origin was removed on 31 August 2026. Full uBlock Origin is aimed at Firefox.", "https://github.com/gorhill/uBlock"),
@@ -137,8 +136,7 @@
         note("No account is required to search.")
       ],
       bad: [
-        note("In August 2022 TechCrunch reported that a Microsoft bat.bing.com script was allowed to load on an advertiser’s site after a DuckDuckGo ad click, and was blocked in other cases.", "https://techcrunch.com/2022/08/05/duckduckgo-microsoft-tracking-scripts/"),
-        note("Search still goes through DuckDuckGo’s servers. You are trusting that company with the queries, even if it says it does not keep a history.")
+        note("In August 2022 TechCrunch reported that a Microsoft bat.bing.com script was allowed to load on an advertiser’s site after a DuckDuckGo ad click, and was blocked in other cases.", "https://techcrunch.com/2022/08/05/duckduckgo-microsoft-tracking-scripts/")
       ]
     },
     {
@@ -150,11 +148,10 @@
       url: "https://search.brave.com/",
       good: [
         note("Brave says search results come from an index it built itself.", "https://brave.com/search/"),
-        note("You can search without turning on Brave Rewards.")
+        note("Brave says it does not profile you for search.", "https://brave.com/search/")
       ],
       bad: [
-        note("Coverage is still thinner than Google on obscure queries, so you may fall back to another engine anyway."),
-        note("Brave Search is run by the same company as the Brave browser. A Rewards upsell lives in that browser, not on the search page alone.", "https://brave.com/brave-rewards/")
+        note("Brave’s own FAQ says you can enable Google fallback mixing in the browser. When that is on, some results can come from Google, not only Brave’s index.", "https://brave.com/search/")
       ]
     },
     {
@@ -167,11 +164,10 @@
       url: "https://quad9.net/",
       good: [
         note("No signup. Quad9 says it does not record IP addresses or other identifiers that pick out a user.", "https://quad9.net/privacy/policy/"),
-        note("The default resolver refuses domains they class as malware, which cuts off a lot of bad links.")
+        note("The default resolver refuses domains they class as malware.", "https://quad9.net/")
       ],
       bad: [
-        note("Quad9 still sees every domain name you resolve. Encrypted DNS only hides those names from your network path, not from the resolver.", "https://support.mozilla.org/en-US/kb/firefox-dns-over-https"),
-        note("DNS does not hide the servers you connect to afterwards. Your ISP still sees those IP addresses.")
+        note("Quad9 still sees every domain name you resolve. Encrypted DNS only hides those names from your network path, not from the resolver.", "https://support.mozilla.org/en-US/kb/firefox-dns-over-https")
       ]
     },
     {
@@ -186,7 +182,7 @@
         note("Blocklists are per configuration, so a phone and a laptop can follow the same rules.")
       ],
       bad: [
-        note("If you turn logging on, query history sits with NextDNS for the retention you set. That is optional, but it is still a log outside your device.", "https://nextdns.io/privacy"),
+        note("If you turn logging on, query history sits with NextDNS for the retention you set.", "https://nextdns.io/privacy"),
         note("The free plan stops filtering after a monthly query cap, so a busy home can silently lose the blocklists.")
       ]
     },
@@ -214,12 +210,11 @@
       platforms: ["Desktop", "iOS", "Android"],
       url: "https://protonvpn.com/",
       good: [
-        note("Proton says Swiss law treats the VPN differently from mail: the VPN cannot be compelled to log user data, while a binding order can make Mail collect account information such as an IP. Message contents stay encrypted.", "https://proton.me/blog/climate-activist-arrest"),
-        note("There is a free tier, so you can try it without paying.")
+        note("Proton says Swiss law treats the VPN differently from mail: the VPN cannot be compelled to log user data, while a binding order can make Mail collect account information such as an IP.", "https://proton.me/blog/climate-activist-arrest"),
+        note("There is a free tier.")
       ],
       bad: [
-        note("You need a Proton account. The provider still sees that your account connected, even when Swiss law cannot compel VPN traffic logs.", "https://proton.me/blog/climate-activist-arrest"),
-        note("A VPN hides your IP from websites. It does not make you anonymous.")
+        note("You need a Proton account. The provider still sees that your account connected, even when Swiss law cannot compel VPN traffic logs.", "https://proton.me/blog/climate-activist-arrest")
       ]
     },
     {
@@ -236,7 +231,7 @@
       ],
       bad: [
         note("That 2020 review also found six vulnerabilities, including high-severity ones. Mullvad said some fixes were already in place, others would follow testing, and one low-severity issue was deferred.", "https://mullvad.net/en/blog/no-pii-or-privacy-leaks-found-cure53s-infrastructure-audit"),
-        note("A VPN still sees that your account connected. Paying by card can identify you; cash or other anonymous payment does not fix that for every payment method.")
+        note("Paying by card can identify you to the payment rail. Cash or anonymous payment methods avoid that only when you actually use them.")
       ]
     },
     {
@@ -251,8 +246,7 @@
         note("IVPN says it is registered in Gibraltar, and that its GDPR regulator is the Gibraltar Regulatory Authority.", "https://www.ivpn.net/en/privacy/")
       ],
       bad: [
-        note("No free tier. You are trusting a smaller staff and a smaller server list than the largest VPNs."),
-        note("Same limit as any VPN: the provider sees that your account connected, and websites only see the VPN’s IP.")
+        note("No free tier. You are trusting a smaller staff and a smaller server list than the largest VPNs.")
       ]
     },
     {
@@ -284,8 +278,7 @@
         note("Relays cannot read messages. The app uses a double-ratchet, and relays do not host accounts.", "https://simplex.chat/privacy/")
       ],
       bad: [
-        note("Trail of Bits’ July 2024 design review found no critical issues, three medium issues, and one low issue. SimpleX says three were improved in version 6.1 and the rest were accepted.", "https://simplex.chat/blog/20241014-simplex-network-v6-1-security-review-better-calls-user-experience.html"),
-        note("SimpleX’s write-up of that review says the medium findings include traffic correlation, easier correlation if TLS is broken, and a case where a modified local database is a problem after the device is compromised.", "https://simplex.chat/blog/20241014-simplex-network-v6-1-security-review-better-calls-user-experience.html")
+        note("Trail of Bits’ July 2024 design review found no critical issues, three medium issues, and one low issue. SimpleX says the medium findings include traffic correlation and a case that matters after the device is already compromised; three issues were improved in 6.1 and the rest were accepted.", "https://simplex.chat/blog/20241014-simplex-network-v6-1-security-review-better-calls-user-experience.html")
       ]
     },
     {
@@ -317,8 +310,7 @@
         note("Bitwarden regularly commissions third-party audits, including annual source-code reviews and penetration tests.", "https://bitwarden.com/help/is-bitwarden-audited/")
       ],
       bad: [
-        note("A synced vault means an encrypted copy sits on Bitwarden’s hosted Azure storage. Bitwarden says it cannot read the vault, but that cloud copy still exists.", "https://bitwarden.com/help/data-storage/"),
-        note("Cure53’s 2023 extension test found autofill could put a password on the wrong origin, including a high-severity public-suffix bug. The report says both were fixed after the test — autofill remains a high-value attack surface.", "https://assets.ctfassets.net/7rncvj1f8mw7/4X0rKCkFkWcPg86PUV3cRn/7277e4651464e0a8efd21d9fcf83d296/2023_Bitwarden_Browser_Extension_Security_Assessment_Report.pdf")
+        note("A synced vault means an encrypted copy sits on Bitwarden’s hosted Azure storage. Bitwarden says it cannot read the vault, but that cloud copy still exists.", "https://bitwarden.com/help/data-storage/")
       ]
     },
     {
@@ -349,8 +341,7 @@
         note("Apps are open source, with a public audit of the clients.", "https://proton.me/business/blog/proton-pass-audit-2026")
       ],
       bad: [
-        note("The vault sits on a Proton account, so mail and the password vault share one login identity.", "https://proton.me/pass/security"),
-        note("It is younger than Bitwarden or KeePassXC, and recovery still depends on that Proton account.")
+        note("The vault sits on a Proton account, so mail and the password vault share one login identity.", "https://proton.me/pass/security")
       ]
     },
     {
@@ -361,7 +352,7 @@
       platforms: ["Web", "iOS", "Android"],
       url: "https://proton.me/mail",
       good: [
-        note("Proton says its encryption could not be bypassed in that case, so emails, attachments, calendars, and files were not handed over.", "https://proton.me/blog/climate-activist-arrest"),
+        note("Proton says its encryption could not be bypassed in a 2021 Swiss case, so emails, attachments, calendars, and files were not handed over.", "https://proton.me/blog/climate-activist-arrest"),
         note("There is an onion site if you want to reach the web app over Tor.", "https://proton.me/blog/climate-activist-arrest")
       ],
       bad: [
@@ -382,7 +373,7 @@
       ],
       bad: [
         note("No IMAP. Tuta says a normal mail app would need the decrypted mail.", "https://tuta.com/security"),
-        note("Tuta says it does not use PGP, and that forward secrecy is only planned.", "https://tuta.com/security")
+        note("Tuta says forward secrecy is only planned.", "https://tuta.com/security")
       ]
     },
     {
@@ -398,8 +389,7 @@
         note("IMAP and POP3 work with any mail app, over TLS.", "https://posteo.de/en/site/featurelist")
       ],
       bad: [
-        note("End-to-end encryption is not the default. Optional storage encryption still happens after mail reaches Posteo, which they say is not a substitute. OpenPGP in the webmail uses Mailvelope.", "https://posteo.de/en/site/encryption"),
-        note("It is paid only, about one euro a month, and there is no big mobile suite like Proton or Tuta.")
+        note("End-to-end encryption is not the default. Optional storage encryption still happens after mail reaches Posteo, which they say is not a substitute. OpenPGP in the webmail uses Mailvelope.", "https://posteo.de/en/site/encryption")
       ]
     },
     {
@@ -407,7 +397,7 @@
       name: "Magic Earth",
       category: "maps",
       pick: "Personal favorite",
-      why: "Turn-by-turn maps with offline navigation. This is the Magic Earth app.",
+      why: "Turn-by-turn maps with offline navigation.",
       platforms: ["iOS", "Android"],
       url: "https://www.magicearth.com/",
       good: [
@@ -431,8 +421,7 @@
         note("Maps are downloaded and work with no account.")
       ],
       bad: [
-        note("No live traffic, satellite, or street view. That is the trade for not phoning a data broker."),
-        note("Search and routing quality depend on OpenStreetMap coverage where you are.")
+        note("No live traffic, satellite, or street view. That is the trade for not phoning a data broker.")
       ]
     },
     {
@@ -444,7 +433,7 @@
       url: "https://osmand.net/",
       good: [
         note("Turn-by-turn navigation works offline from OpenStreetMap data, with no Google account.", "https://osmand.net/"),
-        note("On Android you can stop the app sending its install id with map downloads.")
+        note("On Android you can stop the app sending its install id with map downloads.", "https://www.privacyguides.org/en/maps/#osmand")
       ],
       bad: [
         note("Each install gets an id that rotates every three months and is sent when you download maps, unless you turn that off on Android.", "https://www.privacyguides.org/en/maps/#osmand"),
@@ -477,11 +466,10 @@
       url: "https://ente.io/auth",
       good: [
         note("Ente Auth can be used with no account and no backups, or with end-to-end encrypted backups that sync codes across devices.", "https://ente.io/auth"),
-        note("The clients are open source, so the encryption is not a closed box.", "https://github.com/ente-io/ente")
+        note("The clients are open source.", "https://github.com/ente-io/ente")
       ],
       bad: [
-        note("Cloud backup means an Ente account. That account is a new identity tied to your second factors."),
-        note("A backup of every login code is a high-value target if the vault password is weak or reused.")
+        note("Cloud backup means an Ente account. That account is a new identity tied to your second factors.")
       ]
     },
     {
@@ -496,8 +484,7 @@
         note("The vault can be exported as plaintext or as an encrypted file.", "https://github.com/beemdevelopment/Aegis")
       ],
       bad: [
-        note("No iPhone or desktop app. If you lose the phone and the backup file, the codes are gone."),
-        note("The backup file is the keys to every account. Store it like a password database, not in chat.")
+        note("No iPhone or desktop app. If you lose the phone and the backup file, the codes are gone.")
       ]
     },
     {
@@ -510,13 +497,12 @@
       url: "https://grapheneos.org/",
       good: [
         note("It hardens Android itself: memory safety, exploit mitigations, and tighter app sandboxing.", "https://grapheneos.org/features"),
+        note("Official builds stay on phones that meet their hardware security bar. Today that is Pixel phones and the Pixel Tablet — not because the list is short for its own sake, but because most phones fall short.", "https://grapheneos.org/faq"),
         note("Google Play is optional and, if you install it, runs as a normal sandboxed app rather than as the system.", "https://grapheneos.org/features#sandboxed-google-play"),
-        note("GrapheneOS says the Play Store app is the most secure way to install and update apps from the Play Store.", "https://grapheneos.org/usage#sandboxed-google-play"),
         note("GrapheneOS says the Motorola Signature 27 will be its first Motorola phone, and that official support is still upcoming. They say the phone meets their security requirements.", "https://grapheneos.social/@GrapheneOS/117570913006181046")
       ],
       bad: [
-        note("The FAQ’s current production list is Pixel phones and the Pixel Tablet. Other devices can be built from source, which the FAQ says is not the same as a secure official device.", "https://grapheneos.org/faq"),
-        note("Apps can still talk to the network. This is not a switch that makes every app private, and some apps detect the OS.")
+        note("Personal favorite on this list, so take the notes with that bias.")
       ]
     },
     {
@@ -531,8 +517,7 @@
         note("GrapheneOS says you authorize Play as an app source and consent to each install. After that, Play can apply automatic updates for apps it installed.", "https://grapheneos.org/usage#sandboxed-google-play")
       ],
       bad: [
-        note("The same guide says the Play Store requires a signed-in account before it will install apps.", "https://grapheneos.org/usage#sandboxed-google-play"),
-        note("You are still installing from Google’s store and trusting Google’s packaging for those apps, even when Play is sandboxed on GrapheneOS.")
+        note("The same guide says the Play Store requires a signed-in account before it will install apps.", "https://grapheneos.org/usage#sandboxed-google-play")
       ]
     },
     {
@@ -543,12 +528,10 @@
       platforms: ["Android"],
       url: "https://github.com/ImranR98/Obtainium",
       good: [
-        note("Updates come from the upstream you choose, such as a GitHub release or a developer site, without a store login.", "https://github.com/ImranR98/Obtainium"),
-        note("Obtainium installs and updates apps from release pages you choose, such as GitHub or a page that links to APKs.", "https://github.com/ImranR98/Obtainium")
+        note("Updates come from the upstream you choose, such as a GitHub release or a developer site, without a store login.", "https://github.com/ImranR98/Obtainium")
       ],
       bad: [
-        note("You have to confirm you are tracking the real project, not a lookalike repo."),
-        note("Obtainium does not review the APK for you. A bad release page becomes a bad install.")
+        note("You have to confirm you are tracking the real project. Obtainium does not review the APK for you.")
       ]
     },
     {
@@ -586,7 +569,11 @@
     var category = opts && opts.category ? String(opts.category) : "all";
     var query = opts && opts.query ? String(opts.query).trim().toLowerCase() : "";
     return APPS.filter(function (app) {
-      if (category !== "all" && app.category !== category) return false;
+      if (category === "favorites") {
+        if (app.pick !== "Personal favorite") return false;
+      } else if (category !== "all" && app.category !== category) {
+        return false;
+      }
       if (!query) return true;
       var cat = CATEGORIES.find(function (c) { return c.id === app.category; });
       var bits = [app.name, app.why, app.pick, cat && cat.label].concat(app.platforms || []);

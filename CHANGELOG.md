@@ -2,6 +2,20 @@
 
 All notable changes to **SeclusaSite**.
 
+## 22 — 2026-11-16
+
+### Added
+- Home promise line, Browse / Privacy check CTAs, Seclusa rules strip
+- What’s new (with RSS), PWA install tip, Personal favorites strip
+- About teaser on the home page; offline page site map
+- Privacy check: How I pick note + Favorites filter; Caveats label; catalog rewrite
+
+### Changed
+- Store tile blurbs differentiated; app versions synced to local manifests
+- Light-mode store tiles and surfaces tightened
+- Privacy notice in plainer language
+- Asset and service-worker cache version 22
+
 ## 21 — 2026-11-16
 
 ### Added
@@ -13,7 +27,6 @@ All notable changes to **SeclusaSite**.
 - Privacy notice covers the Privacy check page
 - Asset and service-worker cache version 21
 
-All notable changes to **SeclusaSite**.
 
 ## 20 — 2026-11-13
 

@@ -349,7 +349,7 @@
         card.appendChild(plats);
       }
       card.appendChild(pointList(catalog, "Good", "app-good", app.good));
-      card.appendChild(pointList(catalog, "Bad", "app-bad", app.bad));
+      card.appendChild(pointList(catalog, "Caveats", "app-bad", app.bad));
       if (catalog.isHttpsUrl(app.url)) {
         var actions = node("div", "app-actions");
         actions.appendChild(externalLink(app.url, "btn btn-compact primary", "Visit"));
@@ -379,6 +379,11 @@
     allBtn.setAttribute("aria-pressed", "true");
     allBtn.setAttribute("data-apps-cat", "all");
     filters.appendChild(allBtn);
+    var favBtn = node("button", "filter-chip", "Favorites");
+    favBtn.type = "button";
+    favBtn.setAttribute("aria-pressed", "false");
+    favBtn.setAttribute("data-apps-cat", "favorites");
+    filters.appendChild(favBtn);
     catalog.CATEGORIES.forEach(function (cat) {
       var btn = node("button", "filter-chip", cat.label);
       btn.type = "button";

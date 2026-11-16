@@ -22,15 +22,15 @@
   <meta name="twitter:description" content="Seclusa app store — privacy-first PWAs. No accounts, no tracking, open source.">
   <meta name="twitter:image" content="https://ambr3.github.io/site/icons/social.png">
   <link rel="alternate" type="application/rss+xml" title="Seclusa releases" href="feed.xml">
-  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png?v=21">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=21">
-  <script src="js/theme-boot.js?v=21"></script>
-  <link rel="stylesheet" href="css/site.css?v=21">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png?v=22">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=22">
+  <script src="js/theme-boot.js?v=22"></script>
+  <link rel="stylesheet" href="css/site.css?v=22">
 </head>
-<body data-site-v="21">
+<body data-site-v="22">
   <nav class="site-nav" aria-label="Primary">
     <a class="brand" href="./">
-      <img class="brand-mark" src="icons/icon-192.png?v=21" width="40" height="40" alt="Seclusa">
+      <img class="brand-mark" src="icons/icon-192.png?v=22" width="40" height="40" alt="Seclusa">
     </a>
     <ul class="links">
       <li><a href="#apps">Apps</a></li>
@@ -55,7 +55,7 @@
     <section class="hero hero--compact wrap" id="top">
       <div class="hero-copy">
         <div class="hero-brand-row">
-          <img class="hero-lockup__icon reveal" src="icons/logo.png?v=21" width="288" height="234" alt="">
+          <img class="hero-lockup__icon reveal" src="icons/logo.png?v=22" width="288" height="234" alt="">
           <div class="hero-lockup__gloss">
             <hr class="hero-lockup__rule" aria-hidden="true">
             <p class="hero-lockup__tag">
@@ -63,12 +63,85 @@
               <span>private</span> · <span>secluded</span> · <span>set apart</span>
             </p>
           </div>
-          <p class="hero-store-link"><a href="#apps">Browse the app store</a></p>
+          <p class="hero-promise reveal">Local apps. No accounts. No tracking.</p>
+          <p class="hero-ctas">
+            <a class="hero-cta hero-cta--primary" href="#apps">Browse apps</a>
+            <a class="hero-cta" href="check/">Privacy check</a>
+          </p>
         </div>
       </div>
     </section>
 
+    <section class="rules-strip wrap" aria-label="Seclusa rules">
+      <ul class="rules-list">
+        <li>No accounts</li>
+        <li>No analytics</li>
+        <li>Open source</li>
+        <li>Data on device <span class="rules-note">(Weather uses Open-Meteo)</span></li>
+      </ul>
+    </section>
+
+    <section class="whats-new wrap" aria-labelledby="whats-new-title">
+      <div class="whats-new__head">
+        <h2 class="whats-new__title" id="whats-new-title">What’s new</h2>
+        <a class="whats-new__rss" href="feed.xml">RSS</a>
+      </div>
+      <ul class="whats-new__list">
+        <li>
+          <span class="whats-new__when">16 Nov 2026</span>
+          <span class="whats-new__text">Privacy check lives on this site — app notes, policy, headers, URLs.</span>
+        </li>
+        <li>
+          <span class="whats-new__when">13 Nov 2026</span>
+          <span class="whats-new__text">Games hub removed; Word Puzzle 0.4.0; store versions synced.</span>
+        </li>
+        <li>
+          <span class="whats-new__when">13 Nov 2026</span>
+          <span class="whats-new__text">Seclusa TDS is live on the store.</span>
+        </li>
+      </ul>
+    </section>
+
     <section class="deck deck--apps wrap" aria-label="App store" id="apps">
+      <p class="install-tip">To install a PWA: Open → browser menu → <strong>Install</strong> or <strong>Add to Home Screen</strong>.</p>
+
+      <section class="picks" aria-labelledby="picks-title">
+        <div class="app-cat__head">
+          <h3 class="app-cat__title" id="picks-title">Personal favorites</h3>
+          <p class="app-cat__count">Quick picks</p>
+        </div>
+        <div class="picks-row">
+          <a class="pick-chip" href="https://ambr3.github.io/weather/" rel="noopener noreferrer">
+            <span class="app-icon app-icon--weather pick-chip__icon" aria-hidden="true"></span>
+            <span class="pick-chip__copy">
+              <span class="pick-chip__name">Weather</span>
+              <span class="pick-chip__why">Open-Meteo only</span>
+            </span>
+          </a>
+          <a class="pick-chip" href="https://ambr3.github.io/notes/" rel="noopener noreferrer">
+            <span class="app-icon app-icon--notes pick-chip__icon" aria-hidden="true"></span>
+            <span class="pick-chip__copy">
+              <span class="pick-chip__name">Notes</span>
+              <span class="pick-chip__why">Notebook on device</span>
+            </span>
+          </a>
+          <a class="pick-chip" href="check/">
+            <span class="app-icon app-icon--privacy pick-chip__icon" aria-hidden="true"></span>
+            <span class="pick-chip__copy">
+              <span class="pick-chip__name">Privacy check</span>
+              <span class="pick-chip__why">Local toolkit</span>
+            </span>
+          </a>
+          <a class="pick-chip" href="https://ambr3.github.io/seclusa-tds/" rel="noopener noreferrer">
+            <span class="app-icon app-icon--tds pick-chip__icon" aria-hidden="true"></span>
+            <span class="pick-chip__copy">
+              <span class="pick-chip__name">TDS</span>
+              <span class="pick-chip__why">Top-down shooter</span>
+            </span>
+          </a>
+        </div>
+      </section>
+
       <div class="deck-col">
         <section class="app-cat" aria-labelledby="cat-daily">
           <div class="app-cat__head">
@@ -81,8 +154,8 @@
                 <span class="app-icon app-icon--weather" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Seclusa Weather</h2>
-                  <p>Privacy-first weather: Open-Meteo only, no accounts or trackers.</p>
-                  <div class="meta"><span>PWA</span><span>v0.8.0</span></div>
+                  <p>Forecasts from Open-Meteo only — no weather account, no ad kit.</p>
+                  <div class="meta"><span>PWA</span><span>v0.8.1</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -96,8 +169,8 @@
                 <span class="app-icon app-icon--notes" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Seclusa Notes</h2>
-                  <p>Private notebook: all data stays on your device.</p>
-                  <div class="meta"><span>PWA</span><span>v0.2.14</span></div>
+                  <p>A plain notebook in IndexedDB. No sync server, no login.</p>
+                  <div class="meta"><span>PWA</span><span>v0.2.15</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -111,8 +184,8 @@
                 <span class="app-icon app-icon--calendar" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Seclusa Calendar</h2>
-                  <p>Private calendar: events stay on your device.</p>
-                  <div class="meta"><span>PWA</span><span>v0.3.11</span></div>
+                  <p>Events on this device. No Google Calendar account required.</p>
+                  <div class="meta"><span>PWA</span><span>v0.3.12</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -126,8 +199,8 @@
                 <span class="app-icon app-icon--bp" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Seclusa BP</h2>
-                  <p>A private blood pressure log. Nothing leaves your device.</p>
-                  <div class="meta"><span>PWA</span><span>v0.2.0</span></div>
+                  <p>Blood-pressure log with charts. Readings never leave the phone.</p>
+                  <div class="meta"><span>PWA</span><span>v0.2.4</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -141,8 +214,8 @@
                 <span class="app-icon app-icon--convert" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Seclusa Convert</h2>
-                  <p>Private unit converter: everything stays on your device.</p>
-                  <div class="meta"><span>PWA</span><span>v0.1.4</span></div>
+                  <p>Units and measures offline. Prefs stay in the browser.</p>
+                  <div class="meta"><span>PWA</span><span>v0.1.7</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -156,7 +229,7 @@
                 <span class="app-icon app-icon--privacy" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Privacy check</h2>
-                  <p>Local toolkit: policy, headers, URLs, and app notes on this site.</p>
+                  <p>Policy, headers, URLs, and sourced app notes — all local.</p>
                   <div class="meta"><span>Site</span><span>Toolkit</span></div>
                 </div>
               </div>
@@ -178,8 +251,8 @@
                 <span class="app-icon app-icon--blocks" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Seclusa Blocks</h2>
-                  <p>Falling-block puzzle. Scores stay on your device.</p>
-                  <div class="meta"><span>PWA</span><span>v0.1.1</span></div>
+                  <p>Falling-block puzzle. High scores stay in this browser.</p>
+                  <div class="meta"><span>PWA</span><span>v0.1.2</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -193,8 +266,8 @@
                 <span class="app-icon app-icon--klondike" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Seclusa Klondike</h2>
-                  <p>Classic solitaire. The game stays on your device.</p>
-                  <div class="meta"><span>PWA</span><span>v0.2.1</span></div>
+                  <p>Classic solitaire. No account, no online table.</p>
+                  <div class="meta"><span>PWA</span><span>v0.2.2</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -208,8 +281,8 @@
                 <span class="app-icon app-icon--munch" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Seclusa Munch</h2>
-                  <p>Eat the maze. Keep clear of the four.</p>
-                  <div class="meta"><span>PWA</span><span>v0.1.2</span></div>
+                  <p>Eat the maze. Keep clear of the four. Offline arcade.</p>
+                  <div class="meta"><span>PWA</span><span>v0.1.3</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -224,7 +297,7 @@
                 <div class="app-copy">
                   <h2>Seclusa Pyramid</h2>
                   <p>Pair cards and clear the pyramid. Local only.</p>
-                  <div class="meta"><span>PWA</span><span>v0.2.0</span></div>
+                  <div class="meta"><span>PWA</span><span>v0.2.1</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -238,8 +311,8 @@
                 <span class="app-icon app-icon--word-puzzle" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Seclusa Word Puzzle</h2>
-                  <p>Puzzle, Ladder, Scrabble, Guess, and Blanks. Offline on your device.</p>
-                  <div class="meta"><span>PWA</span><span>v0.3.0</span></div>
+                  <p>Puzzle, Ladder, Scrabble, Guess, and Blanks — five modes offline.</p>
+                  <div class="meta"><span>PWA</span><span>v0.4.0</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -253,8 +326,8 @@
                 <span class="app-icon app-icon--tds" aria-hidden="true"></span>
                 <div class="app-copy">
                   <h2>Seclusa TDS</h2>
-                  <p>Top-down sci-fi shooter. Salvage ship parts. Progress stays on your device.</p>
-                  <div class="meta"><span>PWA</span><span>v0.1.65</span></div>
+                  <p>Top-down sci-fi shooter. Salvage parts; progress stays here.</p>
+                  <div class="meta"><span>PWA</span><span>v0.1.66</span></div>
                 </div>
               </div>
               <div class="app-store-actions">
@@ -266,6 +339,12 @@
         </section>
       </div>
     </section>
+
+    <section class="about-teaser wrap" aria-labelledby="about-teaser-title">
+      <h2 class="about-teaser__title" id="about-teaser-title">Why PWAs</h2>
+      <p class="about-teaser__text">Privacy first, then security — and the honest limits. No sales pitch.</p>
+      <p class="about-teaser__link"><a href="about/">Read why I make PWAs →</a></p>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -273,9 +352,11 @@
       <div class="foot-top">
         <nav class="foot-map" aria-label="Site">
           <a href="#apps">Apps</a>
-          <a href="https://github.com/ambr3" rel="noopener noreferrer">Source</a>
+          <a href="check/">Privacy check</a>
           <a href="about/">About</a>
           <a href="privacy/">Privacy</a>
+          <a href="feed.xml">RSS</a>
+          <a href="https://github.com/ambr3" rel="noopener noreferrer">Source</a>
         </nav>
 <div class="foot-social" aria-label="Profiles">
       <a class="foot-ico" href="mailto:ambr3@dav3.mailer.me" aria-label="Email" title="Email">
@@ -290,11 +371,11 @@
     </div>
       </div>
       <div class="foot-bottom">
-        <p class="foot-legal"><span class="foot-legal__mark" aria-hidden="true">©</span><span class="foot-legal__text">2026 Seclusa · <a href="COPYING.txt">GPL-3.0</a> · <span class="foot-ver">v21</span></span></p>
+        <p class="foot-legal"><span class="foot-legal__mark" aria-hidden="true">©</span><span class="foot-legal__text">2026 Seclusa · <a href="COPYING.txt">GPL-3.0</a> · <span class="foot-ver">v22</span></span></p>
         <p class="foot-credit">Made with ❤️ 🇬🇧</p>
       </div>
     </div>
   </footer>
-  <script src="js/site.js?v=21"></script>
+  <script src="js/site.js?v=22"></script>
 </body>
 </html>
