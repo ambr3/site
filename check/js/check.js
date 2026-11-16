@@ -430,10 +430,11 @@
       file.addEventListener("change", function () {
         var f = file.files && file.files[0];
         if (!f) return;
-        var max = window.PrivacyPolicy.MAX_INPUT || 200000;
+        var maxChars = window.PrivacyPolicy.MAX_INPUT || 200000;
+        var maxBytes = maxChars * 4;
         var name = String(f.name || "file").replace(/[\r\n]/g, " ").slice(0, 80);
-        if (typeof f.size === "number" && f.size > max) {
-          toast("File is too large (limit " + max + " bytes)");
+        if (typeof f.size === "number" && f.size > maxBytes) {
+          toast("File is too large (limit " + maxChars + " characters)");
           file.value = "";
           return;
         }
@@ -441,7 +442,7 @@
         reader.onload = function () {
           var input = $("policy-input");
           var text = String(reader.result || "");
-          if (text.length > max) text = text.slice(0, max);
+          if (text.length > maxChars) text = text.slice(0, maxChars);
           if (input) input.value = text;
           renderPolicy();
           toast("Loaded " + name);
@@ -449,7 +450,7 @@
         reader.onerror = function () {
           toast("Could not read " + name);
         };
-        reader.readAsText(f.slice(0, max));
+        reader.readAsText(f.slice(0, maxBytes));
         file.value = "";
       });
     }

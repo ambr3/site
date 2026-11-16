@@ -117,6 +117,14 @@ test("tracking params are detected and scrubbed", () => {
   assert.equal(PrivacyUrls.scrub(input), "https://example.com/a?id=1");
 });
 
+test("scrub keeps ambiguous non-tracking keys like source and ref", () => {
+  const input = "https://example.com/docs?source=docs&ref=api&utm_medium=email";
+  assert.equal(
+    PrivacyUrls.scrub(input),
+    "https://example.com/docs?source=docs&ref=api"
+  );
+});
+
 test("credentials in URL are danger", () => {
   const r = PrivacyUrls.parseOne("https://user:pass@example.com/");
   assert.equal(r.band, "danger");

@@ -1,6 +1,6 @@
-const CACHE = "seclusa-site-v22";
+const CACHE = "seclusa-site-v23";
 const BASE = self.location.pathname.replace(/\/[^/]*$/, "/");
-const V = "22";
+const V = "23";
 
 /**
  * Whether a URL is one this worker is allowed to keep a copy of.
@@ -50,6 +50,7 @@ const PRECACHE = [
   BASE + "about/",
   BASE + "privacy/",
   BASE + "check/",
+  BASE + "check/index.html",
   BASE + "css/site.css?v=" + V,
   BASE + "js/site.js?v=" + V,
   BASE + "js/theme-boot.js?v=" + V,

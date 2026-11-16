@@ -6,8 +6,9 @@ Hosted on GitHub Pages from this repository.
 
 ## Features
 
-- Version 22
+- Version 23
 - Links to each app’s GitHub Pages demo and source repo
+- Privacy check toolkit on `/check/` (local policy, headers, URLs, app notes)
 - Works offline once you have opened it (service worker)
 - No accounts, no analytics, no ads
 - Public URL: `https://ambr3.github.io/site/` (GitHub repo `ambr3/site`)

@@ -2,10 +2,22 @@
 
 All notable changes to **SeclusaSite**.
 
+## 23 — 2026-11-16
+
+### Fixed
+- URL scrub no longer strips ambiguous `ref` / `source` keys
+- Policy file load uses a UTF-8-aware byte cap, then truncates by character count
+- Service worker precaches `check/index.html` for offline Privacy check
+- Dead Start-tab / hero-promise CSS removed
+
+### Changed
+- Home: Klondike in Personal favorites; promise line removed
+- Asset and service-worker cache version 23
+
 ## 22 — 2026-11-16
 
 ### Added
-- Home promise line, Browse / Privacy check CTAs, Seclusa rules strip
+- Browse / Privacy check CTAs, Seclusa rules strip
 - What’s new (with RSS), PWA install tip, Personal favorites strip
 - About teaser on the home page; offline page site map
 - Privacy check: How I pick note + Favorites filter; Caveats label; catalog rewrite

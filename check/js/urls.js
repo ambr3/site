@@ -8,7 +8,7 @@
     "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_id",
     "fbclid", "gclid", "gclsrc", "dclid", "msclkid", "twclid", "li_fat_id",
     "mc_cid", "mc_eid", "igshid", "yclid", "_hsenc", "_hsmi", "vero_id",
-    "ref", "ref_src", "ref_url", "source", "spm", "scm"
+    "spm", "scm"
   ];
 
   var TRACKING_SET = {};

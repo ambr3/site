@@ -97,78 +97,6 @@ html[data-theme="light"] .check-kit {
 }
 .tool-chip:active { transform: none; }
 
-/* --------------------------------------------------------------- start */
-
-.hero {
-  margin: 8px 0 18px;
-  text-align: left;
-}
-.hero-kicker {
-  margin: 0 0 6px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-.hero-title {
-  margin: 0 0 8px;
-  font-size: clamp(28px, 7vw, 40px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-.hero-lede {
-  margin: 0;
-  max-width: 34em;
-  color: var(--text-dim);
-  font-size: 15px;
-  line-height: 1.45;
-}
-
-.tile-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-@media (min-width: 560px) {
-  .tile-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-.tool-tile {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  width: 100%;
-  min-height: 108px;
-  padding: 16px;
-  border: 1px solid var(--border-strong);
-  border-radius: calc(var(--radius) + 4px);
-  background: var(--surface);
-  text-align: left;
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--accent) 8%, transparent);
-}
-.tool-tile:hover {
-  background: var(--surface-2);
-  border-color: var(--accent);
-}
-.tool-tile:active { transform: scale(.98); }
-.tile-label {
-  font-size: 17px;
-  font-weight: 700;
-}
-.tile-desc {
-  color: var(--text-dim);
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.start-note {
-  margin: 0;
-  color: var(--text-dim);
-  font-size: 13px;
-}
-
 .field { display: block; }
 .field-label {
   display: block;
@@ -586,7 +514,6 @@ button.text-link {
     to { opacity: 1; transform: none; }
   }
 
-  .tool-tile,
   .tool-chip,
   .filter-chip,
   .btn {

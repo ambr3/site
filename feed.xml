@@ -4,8 +4,15 @@
     <title>Seclusa</title>
     <link>https://ambr3.github.io/site/</link>
     <description>Privacy-first Seclusa apps. Source on GitHub.</description>
-    <lastBuildDate>Mon, 16 Nov 2026 00:00:00 +0000</lastBuildDate>
-        <item>
+    <lastBuildDate>Mon, 16 Nov 2026 12:00:00 +0000</lastBuildDate>
+            <item>
+      <title>Site 23 — scrub, offline check, home polish</title>
+      <link>https://ambr3.github.io/site/</link>
+      <guid isPermaLink="true">https://ambr3.github.io/site/#site-23</guid>
+      <pubDate>Mon, 16 Nov 2026 12:00:00 +0000</pubDate>
+      <description>Safer URL scrub, offline Privacy check precache, Klondike favorites, review fixes.</description>
+    </item>
+    <item>
       <title>Site 22 — home, favorites, Privacy check polish</title>
       <link>https://ambr3.github.io/site/</link>
       <guid isPermaLink="true">https://ambr3.github.io/site/#site-22</guid>
