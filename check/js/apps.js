@@ -55,7 +55,7 @@
         note("Firefox’s own site says known trackers are blocked automatically, and that Mozilla does not sell your personal data.", "https://www.mozilla.org/firefox/")
       ],
       bad: [
-        note("Chromium’s desktop default puts each site in its own sandboxed process and blocks that process from reading another site’s data.", "https://chromium.googlesource.com/chromium/src/+/main/docs/process_model_and_site_isolation.md"),
+        note("Chromium’s desktop default puts each site in its own sandboxed process. Firefox’s containment story is weaker than that model, which matters for exploit damage.", "https://chromium.googlesource.com/chromium/src/+/main/docs/process_model_and_site_isolation.md"),
         note("Mozilla’s April 2026 post says website isolation is off in Firefox for Android release, and that Nightly runs a partial version. A later comment on that page says the release experiment was removed in 159.", "https://connect.mozilla.org/t5/discussions/fission-goes-live-on-android-please-share-your-feedback/m-p/137446")
       ]
     },
@@ -71,8 +71,8 @@
         note("Mullvad’s page says the browser is free and open source with or without the VPN, and that telemetry has been removed.", "https://mullvad.net/browser")
       ],
       bad: [
-        note("The Tor network is removed, so this browser does not hide your IP by itself.", "https://mullvad.net/browser"),
-        note("Mullvad’s page says you can use it with or without their VPN. Without a VPN, the site sees your own address.", "https://mullvad.net/browser")
+        note("The Tor network is removed, so this browser does not hide your IP by itself. Without a VPN, sites see your address.", "https://mullvad.net/browser"),
+        note("The browser is built from Tor Browser’s Firefox base, not Chromium’s site-isolation model.")
       ]
     },
     {
@@ -120,8 +120,8 @@
         note("The project says it works best on Firefox and is still on Firefox Add-ons. The Chrome Web Store copy was removed on 31 August 2026.", "https://github.com/gorhill/uBlock")
       ],
       bad: [
-        note("Chrome guarantees an extension 30,000 static rules plus a shared pool of 300,000, up to 330,000 for one filtering extension. Its docs put EasyList at about 35,000 network rules.", "https://developer.chrome.com/docs/extensions/develop/concepts/content-filtering"),
-        note("uBlock Origin Lite is a separate Manifest V3 extension for Chrome, Edge, Firefox, and Safari. It filters from packaged lists.", "https://github.com/uBlockOrigin/uBOL-home")
+        note("The Chrome Web Store copy of uBlock Origin was removed on 31 August 2026. Full uBlock Origin is aimed at Firefox.", "https://github.com/gorhill/uBlock"),
+        note("On Chromium, uBlock Origin Lite is the Manifest V3 build. Its FAQ says filter lists update only when the extension updates, and that dynamic filtering and several other full-uBlock capabilities cannot be ported.", "https://github.com/uBlockOrigin/uBOL-home/wiki/Frequently-asked-questions-(FAQ)")
       ]
     },
     {
@@ -137,8 +137,8 @@
         note("No account is required to search.")
       ],
       bad: [
-        note("That same help page does not describe the result index. It says Microsoft scripts are not embedded in the search engine or the apps.", "https://duckduckgo.com/duckduckgo-help-pages/misconceptions/does-duckduckgo-share-my-search-history-with-microsoft"),
-        note("In August 2022 TechCrunch reported that a Microsoft bat.bing.com script was allowed to load on an advertiser’s site after a DuckDuckGo ad click, and was blocked in other cases.", "https://techcrunch.com/2022/08/05/duckduckgo-microsoft-tracking-scripts/")
+        note("In August 2022 TechCrunch reported that a Microsoft bat.bing.com script was allowed to load on an advertiser’s site after a DuckDuckGo ad click, and was blocked in other cases.", "https://techcrunch.com/2022/08/05/duckduckgo-microsoft-tracking-scripts/"),
+        note("Search still goes through DuckDuckGo’s servers. You are trusting that company with the queries, even if it says it does not keep a history.")
       ]
     },
     {
@@ -153,8 +153,8 @@
         note("You can search without turning on Brave Rewards.")
       ],
       bad: [
-        note("Brave Rewards is optional and lives in the Brave browser: ordinary ads stay blocked unless you choose to see Brave Ads.", "https://brave.com/brave-rewards/"),
-        note("Coverage is still thinner than Google on obscure queries, so you may fall back to another engine anyway.")
+        note("Coverage is still thinner than Google on obscure queries, so you may fall back to another engine anyway."),
+        note("Brave Search is run by the same company as the Brave browser. A Rewards upsell lives in that browser, not on the search page alone.", "https://brave.com/brave-rewards/")
       ]
     },
     {
@@ -170,7 +170,7 @@
         note("The default resolver refuses domains they class as malware, which cuts off a lot of bad links.")
       ],
       bad: [
-        note("Encrypted DNS hides the names from your router. The resolver you picked still sees them. That is how DNS works, not a Quad9 quirk.", "https://support.mozilla.org/en-US/kb/firefox-dns-over-https"),
+        note("Quad9 still sees every domain name you resolve. Encrypted DNS only hides those names from your network path, not from the resolver.", "https://support.mozilla.org/en-US/kb/firefox-dns-over-https"),
         note("DNS does not hide the servers you connect to afterwards. Your ISP still sees those IP addresses.")
       ]
     },
@@ -186,7 +186,7 @@
         note("Blocklists are per configuration, so a phone and a laptop can follow the same rules.")
       ],
       bad: [
-        note("If you turn logging on, NextDNS keeps what you choose, for the time you set, and you can delete it.", "https://nextdns.io/privacy"),
+        note("If you turn logging on, query history sits with NextDNS for the retention you set. That is optional, but it is still a log outside your device.", "https://nextdns.io/privacy"),
         note("The free plan stops filtering after a monthly query cap, so a busy home can silently lose the blocklists.")
       ]
     },
@@ -218,8 +218,8 @@
         note("There is a free tier, so you can try it without paying.")
       ],
       bad: [
-        note("The same post says a Swiss criminal order can force collection of information on a specific Proton Mail account. The VPN line on that page is only that the VPN cannot be compelled to log.", "https://proton.me/blog/climate-activist-arrest"),
-        note("A VPN hides your IP from websites. It does not make you anonymous, and the provider still sees that you connected.")
+        note("You need a Proton account. The provider still sees that your account connected, even when Swiss law cannot compel VPN traffic logs.", "https://proton.me/blog/climate-activist-arrest"),
+        note("A VPN hides your IP from websites. It does not make you anonymous.")
       ]
     },
     {
@@ -236,7 +236,7 @@
       ],
       bad: [
         note("That 2020 review also found six vulnerabilities, including high-severity ones. Mullvad said some fixes were already in place, others would follow testing, and one low-severity issue was deferred.", "https://mullvad.net/en/blog/no-pii-or-privacy-leaks-found-cure53s-infrastructure-audit"),
-        note("In 2023 Swedish police arrived with a search warrant and left with nothing, because Mullvad says it does not keep those logs.", "https://mullvad.net/en/vpn/laws-that-matter")
+        note("A VPN still sees that your account connected. Paying by card can identify you; cash or other anonymous payment does not fix that for every payment method.")
       ]
     },
     {
@@ -300,7 +300,7 @@
         note("Adding someone is a deliberate exchange, not a phone-number lookup.")
       ],
       bad: [
-        note("Briar syncs messages directly between devices that are running Briar.", "https://briarproject.org/how-it-works/"),
+        note("Both people need Briar running. It will not reach contacts who stay on ordinary messengers.", "https://briarproject.org/how-it-works/"),
         note("Desktop builds lag the Android app, and the network of users is small.")
       ]
     },
@@ -317,8 +317,8 @@
         note("Bitwarden regularly commissions third-party audits, including annual source-code reviews and penetration tests.", "https://bitwarden.com/help/is-bitwarden-audited/")
       ],
       bad: [
-        note("Hosted vault data sits in Microsoft Azure. Bitwarden says it is encrypted or hashed on the device before upload, and that the servers store that encrypted data.", "https://bitwarden.com/help/data-storage/"),
-        note("Cure53’s 2023 extension test found autofill could put a password on the wrong origin, including a high-severity public-suffix bug. The report says both were fixed after the test.", "https://assets.ctfassets.net/7rncvj1f8mw7/4X0rKCkFkWcPg86PUV3cRn/7277e4651464e0a8efd21d9fcf83d296/2023_Bitwarden_Browser_Extension_Security_Assessment_Report.pdf")
+        note("A synced vault means an encrypted copy sits on Bitwarden’s hosted Azure storage. Bitwarden says it cannot read the vault, but that cloud copy still exists.", "https://bitwarden.com/help/data-storage/"),
+        note("Cure53’s 2023 extension test found autofill could put a password on the wrong origin, including a high-severity public-suffix bug. The report says both were fixed after the test — autofill remains a high-value attack surface.", "https://assets.ctfassets.net/7rncvj1f8mw7/4X0rKCkFkWcPg86PUV3cRn/7277e4651464e0a8efd21d9fcf83d296/2023_Bitwarden_Browser_Extension_Security_Assessment_Report.pdf")
       ]
     },
     {
@@ -349,7 +349,7 @@
         note("Apps are open source, with a public audit of the clients.", "https://proton.me/business/blog/proton-pass-audit-2026")
       ],
       bad: [
-        note("Proton Pass uses a Proton account. The security page says a VPN is included and that the encryption has been used with Proton Mail.", "https://proton.me/pass/security"),
+        note("The vault sits on a Proton account, so mail and the password vault share one login identity.", "https://proton.me/pass/security"),
         note("It is younger than Bitwarden or KeePassXC, and recovery still depends on that Proton account.")
       ]
     },
@@ -532,7 +532,7 @@
       ],
       bad: [
         note("The same guide says the Play Store requires a signed-in account before it will install apps.", "https://grapheneos.org/usage#sandboxed-google-play"),
-        note("This is the path for apps from Play. An app the developer publishes themselves is a different install, covered under Obtainium.")
+        note("You are still installing from Google’s store and trusting Google’s packaging for those apps, even when Play is sandboxed on GrapheneOS.")
       ]
     },
     {
@@ -548,7 +548,7 @@
       ],
       bad: [
         note("You have to confirm you are tracking the real project, not a lookalike repo."),
-        note("F-Droid’s developer FAQ says a package it signs will not update in place over the developer’s own APK. Uninstalling to switch deletes the app’s private data.", "https://f-droid.org/docs/FAQ_-_App_Developers/")
+        note("Obtainium does not review the APK for you. A bad release page becomes a bad install.")
       ]
     },
     {

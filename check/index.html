@@ -8,16 +8,16 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; img-src 'self'; font-src 'self'; style-src 'self'; script-src 'self'; worker-src 'self'; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests">
-  <title>Check | Seclusa</title>
+  <title>Privacy check | Seclusa</title>
   <link rel="canonical" href="https://ambr3.github.io/site/check/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Seclusa">
-  <meta property="og:title" content="Check | Seclusa">
+  <meta property="og:title" content="Privacy check | Seclusa">
   <meta property="og:description" content="Local privacy toolkit: policy, headers, URLs, and app notes. Checks stay on this device.">
   <meta property="og:url" content="https://ambr3.github.io/site/check/">
   <meta property="og:image" content="https://ambr3.github.io/site/icons/social.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Check | Seclusa">
+  <meta name="twitter:title" content="Privacy check | Seclusa">
   <meta name="twitter:description" content="Local privacy toolkit: policy, headers, URLs, and app notes. Checks stay on this device.">
   <meta name="twitter:image" content="https://ambr3.github.io/site/icons/social.png">
   <link rel="alternate" type="application/rss+xml" title="Seclusa releases" href="../feed.xml">
@@ -25,7 +25,7 @@
   <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png?v=21">
   <script src="../js/theme-boot.js?v=21"></script>
   <link rel="stylesheet" href="../css/site.css?v=21">
-  <link rel="stylesheet" href="css/check.css?v=21">
+  <link rel="stylesheet" href="css/check.css?v=21.1">
 </head>
 <body data-site-v="21">
   <nav class="site-nav" aria-label="Primary">
@@ -34,7 +34,7 @@
     </a>
     <ul class="links">
       <li><a href="../#apps">Apps</a></li>
-      <li><a href="./" aria-current="page">Check</a></li>
+      <li><a href="./" aria-current="page">Privacy check</a></li>
       <li><a href="../about/">About</a></li>
       <li class="theme-menu">
         <button type="button" class="theme-toggle" data-theme-toggle aria-expanded="false" aria-haspopup="dialog" aria-controls="theme-sheet">Theme</button>
@@ -52,46 +52,31 @@
 
   <main>
     <header class="page-head wrap">
-      <p class="label">// Check</p>
+      <p class="label">// Privacy check</p>
       <h1>Privacy check</h1>
-      <p class="sub">Paste a policy, email headers, or URLs — or browse starter app picks. Checks stay on this device. A link leaves this page only if you tap it.</p>
+      <p class="sub">App picks and local checks. Nothing leaves until you tap a link.</p>
     </header>
 
     <div class="check-kit">
-      <div class="tool-row" id="tool-row" role="tablist" aria-label="Tools">
-        <button type="button" class="tool-chip" role="tab" id="tab-start" aria-controls="panel-start" aria-selected="true" tabindex="0" data-tool="start">Start</button>
+      <p class="check-note">Not advice — just a recommendation. Notes can be old or wrong. Nothing is fetched until you tap.</p>
+      <div class="tool-row mt12" id="tool-row" role="tablist" aria-label="Tools">
+        <button type="button" class="tool-chip" role="tab" id="tab-apps" aria-controls="panel-apps" aria-selected="true" tabindex="0" data-tool="apps">Apps</button>
         <button type="button" class="tool-chip" role="tab" id="tab-policy" aria-controls="panel-policy" aria-selected="false" tabindex="-1" data-tool="policy">Policy</button>
         <button type="button" class="tool-chip" role="tab" id="tab-headers" aria-controls="panel-headers" aria-selected="false" tabindex="-1" data-tool="headers">Headers</button>
         <button type="button" class="tool-chip" role="tab" id="tab-urls" aria-controls="panel-urls" aria-selected="false" tabindex="-1" data-tool="urls">URLs</button>
-        <button type="button" class="tool-chip" role="tab" id="tab-apps" aria-controls="panel-apps" aria-selected="false" tabindex="-1" data-tool="apps">Apps</button>
         <button type="button" class="tool-chip" role="tab" id="tab-about" aria-controls="panel-about" aria-selected="false" tabindex="-1" data-tool="about">About</button>
       </div>
 
-      <section class="panel" id="panel-start" role="tabpanel" aria-labelledby="tab-start">
-        <div class="hero">
-          <p class="hero-kicker">Local toolkit</p>
-          <h2 class="hero-title">Seclusa Check</h2>
-          <p class="hero-lede">Keyword and parser checks only. Not AI. Nothing is fetched until you tap a link.</p>
-        </div>
-        <div class="tile-grid">
-          <button type="button" class="tool-tile" data-goto="policy">
-            <span class="tile-label">Policy</span>
-            <span class="tile-desc">Flag risky clauses in a privacy policy</span>
-          </button>
-          <button type="button" class="tool-tile" data-goto="headers">
-            <span class="tile-label">Headers</span>
-            <span class="tile-desc">Check SPF, DKIM, DMARC and leak signals</span>
-          </button>
-          <button type="button" class="tool-tile" data-goto="urls">
-            <span class="tile-label">URLs</span>
-            <span class="tile-desc">Spot http, tracking params, scrub locally</span>
-          </button>
-          <button type="button" class="tool-tile" data-goto="apps">
-            <span class="tile-label">Apps</span>
-            <span class="tile-desc">Why to use a tool, and the privacy tradeoffs</span>
-          </button>
-        </div>
-        <p class="start-note mt14">Not AI — keyword and parser checks only. <button type="button" class="text-link" data-goto="about">Use at your own risk</button>.</p>
+      <section class="panel" id="panel-apps" role="tabpanel" aria-labelledby="tab-apps">
+        <h2 class="visually-hidden">App recommendations</h2>
+        <label class="field">
+          <span class="visually-hidden">Search</span>
+          <input type="search" id="apps-search" placeholder="Search name or platform…" autocomplete="off" spellcheck="false">
+        </label>
+        <div class="apps-filters mt12" id="apps-filters" role="group" aria-label="Category"></div>
+        <p class="apps-count meta" id="apps-count" aria-live="polite"></p>
+        <div class="apps-list mt12" id="apps-list"></div>
+        <p class="apps-contact">If a note needs changing or correcting, email <a href="mailto:ambr3@dav3.mailer.me">ambr3@dav3.mailer.me</a>. This page does not send the message. Your mail app does, and only if you send it.</p>
       </section>
 
       <section class="panel hidden" id="panel-policy" role="tabpanel" aria-labelledby="tab-policy" hidden>
@@ -144,37 +129,11 @@
         <div id="urls-result" class="result-block mt14" hidden></div>
       </section>
 
-      <section class="panel hidden" id="panel-apps" role="tabpanel" aria-labelledby="tab-apps" hidden>
-        <h2 class="panel-title">App recommendations</h2>
-        <p class="panel-hint">The opening line is a summary. Each Good or Bad line is limited to what its source link says. Personal favorite is my own pick. Nothing is fetched until you tap.</p>
-        <div class="disclaimer mt12">
-          <p>These notes can be old, incomplete, or wrong. A link only shows what that page said when the note was written. Open the source, and the app’s own site, before you change what you use. This is not advice, just a recommendation.</p>
-        </div>
-        <label class="field">
-          <span class="field-label">Search</span>
-          <input type="search" id="apps-search" placeholder="Name, platform…" autocomplete="off" spellcheck="false">
-        </label>
-        <div class="apps-filters mt12" id="apps-filters" role="group" aria-label="Category"></div>
-        <p class="apps-count meta mt12" id="apps-count" aria-live="polite"></p>
-        <div class="apps-list mt12" id="apps-list"></div>
-        <p class="apps-contact">If a note needs changing or correcting, email <a href="mailto:ambr3@dav3.mailer.me">ambr3@dav3.mailer.me</a>. This page does not send the message. Your mail app does, and only if you send it.</p>
-      </section>
-
       <section class="panel hidden" id="panel-about" role="tabpanel" aria-labelledby="tab-about" hidden>
         <h2 class="panel-title">About</h2>
-        <p>Technical notes. For a plain-language intro, see <button type="button" class="text-link" data-goto="start">Start</button>.</p>
-        <p class="mt12">Pasted policies, headers and URLs are not saved and never leave this device. These tools do not call the network. The Seclusa site may cache its own files so pages work offline. Pasted text is not part of that. This is not AI.</p>
-
-        <h2 class="panel-title mt18">Use at your own risk</h2>
-        <div class="disclaimer">
-          <p>This page is a helper, not a lawyer, auditor, or security guarantee. Results can miss things, flag harmless wording, or go out of date.</p>
-          <p class="mt12">You are responsible for how you use the output. Do not rely on it alone for legal compliance, contracts, incident response, or safety decisions. If something matters, read the full documents yourself and get qualified advice.</p>
-          <p class="mt12">Software is provided as-is, with no warranty. By using it you accept that risk. See the <a href="../COPYING.txt">GPL-3.0 licence</a> for the legal terms that apply to the code.</p>
-        </div>
-
-        <h2 class="panel-title mt18">App notes</h2>
-        <p>The Apps tab is stored in this page. A source link belongs to the sentence beside it. Notes can be old, incomplete, or wrong — open the source before you switch tools. Corrections: <a href="mailto:ambr3@dav3.mailer.me">ambr3@dav3.mailer.me</a>.</p>
-
+        <p>Pasted policies, headers and URLs are not saved and never leave this device. These tools do not call the network. The Seclusa site may cache its own files so pages work offline. Pasted text is not part of that.</p>
+        <p class="mt12">The Apps tab is stored in this page. A source link belongs to the sentence beside it. Corrections: <a href="mailto:ambr3@dav3.mailer.me">ambr3@dav3.mailer.me</a>.</p>
+        <p class="mt12">Software is provided as-is, with no warranty. See the <a href="../COPYING.txt">GPL-3.0 licence</a>.</p>
         <p class="mt18"><strong>Coming later</strong></p>
         <ul class="about-list">
           <li>Cookie / Set-Cookie string decoder (still local)</li>

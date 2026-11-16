@@ -5,7 +5,7 @@
   "use strict";
 
   var $ = function (id) { return document.getElementById(id); };
-  var TOOLS = ["start", "policy", "headers", "urls", "apps", "about"];
+  var TOOLS = ["apps", "policy", "headers", "urls", "about"];
   var appsCategory = "all";
 
   function toast(message) {
@@ -78,16 +78,16 @@
   }
 
   function hashFor(name) {
-    return name === "start" ? "" : "#" + name;
+    return name === "apps" ? "" : "#" + name;
   }
 
   function toolFromLocation() {
     var raw = String(location.hash || "").replace(/^#/, "");
-    return TOOLS.indexOf(raw) === -1 ? "start" : raw;
+    return TOOLS.indexOf(raw) === -1 ? "apps" : raw;
   }
 
   function selectTool(name, fromHistory) {
-    if (TOOLS.indexOf(name) === -1) name = "start";
+    if (TOOLS.indexOf(name) === -1) name = "apps";
     TOOLS.forEach(function (tool) {
       var tab = $("tab-" + tool);
       var panel = $("panel-" + tool);

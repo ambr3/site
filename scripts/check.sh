@@ -58,7 +58,7 @@ else
 fi
 
 if grep -q 'href="check/"' "$html" && [[ -f "$ROOT/check/index.html" ]]; then
-  ok "Check page and home nav/store link exist"
+  ok "Privacy check page and home nav/store link exist"
 else
   bad "missing check/ page or home link"
 fi
@@ -107,11 +107,11 @@ else
   bad "store should not list Seclusa Games hub"
 fi
 
-if grep -A12 "<h2>Seclusa Check</h2>" "$html" | grep -q 'href="check/"' \
-  && ! grep -A14 "<h2>Seclusa Check</h2>" "$html" | grep -qE 'href="https://(ambr3\.github\.io/privacy-check/|github\.com/ambr3/privacy-check)"'; then
-  ok "store tile Seclusa Check opens /check/ on this site"
+if grep -A12 "<h2>Privacy check</h2>" "$html" | grep -q 'href="check/"' \
+  && ! grep -A14 "<h2>Privacy check</h2>" "$html" | grep -qE 'href="https://(ambr3\.github\.io/privacy-check/|github\.com/ambr3/privacy-check)"'; then
+  ok "store tile Privacy check opens /check/ on this site"
 else
-  bad "store tile Seclusa Check should Open check/ without the old privacy-check repo links"
+  bad "store tile Privacy check should Open check/ without the old privacy-check repo links"
 fi
 
 if grep -A18 "<h2>Seclusa TDS</h2>" "$html" | grep -q 'href="https://ambr3.github.io/seclusa-tds/"' \
