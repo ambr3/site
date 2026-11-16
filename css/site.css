@@ -1390,6 +1390,7 @@ a.app-launch:hover {
 .app-icon--tds { --glyph: url("../icons/tds-glyph.png"); }
 .app-icon--bp { --glyph: url("../icons/blood-pressure-glyph.png"); }
 .app-icon--convert { --glyph: url("../icons/convert-glyph.png"); }
+.app-icon--calc { --glyph: url("../icons/calc-glyph.png"); }
 .app-icon--privacy { --glyph: url("../icons/privacy-glyph.png"); }
 
 .app-copy {

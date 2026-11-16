@@ -4,8 +4,15 @@
     <title>Seclusa</title>
     <link>https://ambr3.github.io/site/</link>
     <description>Privacy-first Seclusa apps. Source on GitHub.</description>
-    <lastBuildDate>Mon, 16 Nov 2026 12:00:00 +0000</lastBuildDate>
-            <item>
+    <lastBuildDate>Mon, 16 Nov 2026 20:00:00 +0000</lastBuildDate>
+                <item>
+      <title>Seclusa Calc on the store</title>
+      <link>https://ambr3.github.io/site/#apps</link>
+      <guid isPermaLink="true">https://ambr3.github.io/site/#site-24-calc</guid>
+      <pubDate>Mon, 16 Nov 2026 20:00:00 +0000</pubDate>
+      <description>Seclusa Calc (scientific calculator PWA) listed on Daily apps with Open and Source.</description>
+    </item>
+    <item>
       <title>Site 23 — scrub, offline check, home polish</title>
       <link>https://ambr3.github.io/site/</link>
       <guid isPermaLink="true">https://ambr3.github.io/site/#site-23</guid>

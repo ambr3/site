@@ -2,6 +2,14 @@
 
 All notable changes to **SeclusaSite**.
 
+## 24 — 2026-11-16
+
+### Added
+- Seclusa Calc on the Daily apps store (Open / Source, v0.1.21)
+
+### Changed
+- Asset and service-worker cache version 24
+
 ## 23 — 2026-11-16
 
 ### Fixed

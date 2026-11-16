@@ -70,6 +70,7 @@ declare -A expect=(
   [calendar]="0.3.12"
   [bp]="0.2.4"
   [convert]="0.1.7"
+  [calc]="0.1.21"
   [blocks]="0.1.2"
   [klondike]="0.2.2"
   [munch]="0.1.3"
@@ -83,6 +84,7 @@ declare -A label=(
   [calendar]="Seclusa Calendar"
   [bp]="Seclusa BP"
   [convert]="Seclusa Convert"
+  [calc]="Seclusa Calc"
   [blocks]="Seclusa Blocks"
   [klondike]="Seclusa Klondike"
   [munch]="Seclusa Munch"
@@ -91,7 +93,7 @@ declare -A label=(
   [tds]="Seclusa TDS"
 )
 
-for key in weather notes calendar bp convert blocks klondike munch pyramid word tds; do
+for key in weather notes calendar bp convert calc blocks klondike munch pyramid word tds; do
   ver="${expect[$key]}"
   name="${label[$key]}"
   if grep -A6 "<h2>${name}</h2>" "$html" | grep -q "v${ver}"; then
@@ -148,6 +150,7 @@ check_app notes notes manifest.webmanifest
 check_app calendar calendar manifest.webmanifest
 check_app bp blood-pressure manifest.json
 check_app convert convert manifest.json
+check_app calc calc manifest.json
 check_app blocks seclusa-blocks manifest.json
 check_app klondike seclusa-klondike manifest.json
 check_app munch seclusa-munch manifest.json
