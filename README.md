@@ -6,7 +6,7 @@ Hosted on GitHub Pages from this repository.
 
 ## Features
 
-- Version 17
+- Version 21
 - Links to each app’s GitHub Pages demo and source repo
 - Works offline once you have opened it (service worker)
 - No accounts, no analytics, no ads

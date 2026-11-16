@@ -2,6 +2,19 @@
 
 All notable changes to **SeclusaSite**.
 
+## 21 — 2026-11-16
+
+### Added
+- **Check** site page (`/check/`): local policy, headers, URL, and app-notes toolkit (no longer a separate PWA)
+- Primary nav link: Check
+
+### Changed
+- Store tile renamed to Seclusa Check with Open → `/check/`
+- Privacy notice covers the Check page
+- Asset and service-worker cache version 21
+
+All notable changes to **SeclusaSite**.
+
 ## 20 — 2026-11-13
 
 ### Changed

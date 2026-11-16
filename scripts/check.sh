@@ -20,7 +20,7 @@ site_v="$(sed -n 's/^const V = "\([^"]*\)";/\1/p' "$ROOT/sw.js" | head -1)"
 if [[ -z "$site_v" ]]; then
   bad "could not read V from sw.js"
 else
-  for f in "$ROOT/index.html" "$ROOT/offline.html" "$ROOT/about/index.html" "$ROOT/privacy/index.html"; do
+  for f in "$ROOT/index.html" "$ROOT/offline.html" "$ROOT/about/index.html" "$ROOT/privacy/index.html" "$ROOT/check/index.html"; do
     if grep -q "?v=${site_v}" "$f" && grep -qE "data-site-v=\"${site_v}\"|foot-ver\">v${site_v}|theme-boot.js\\?v=${site_v}" "$f"; then
       ok "version ${site_v} in $(basename "$(dirname "$f")")/$(basename "$f")"
     elif grep -q "?v=${site_v}" "$f"; then
@@ -55,6 +55,12 @@ if grep -q 'id="cat-daily"' "$html" && grep -q '>Daily apps<' "$html" \
   ok "store has Daily apps and Games categories"
 else
   bad "store missing Daily apps / Games category headings"
+fi
+
+if grep -q 'href="check/"' "$html" && [[ -f "$ROOT/check/index.html" ]]; then
+  ok "Check page and home nav/store link exist"
+else
+  bad "missing check/ page or home link"
 fi
 
 # Store tile versions vs sibling app manifests (when present).
@@ -101,11 +107,11 @@ else
   bad "store should not list Seclusa Games hub"
 fi
 
-if grep -A12 "<h2>Seclusa Privacy</h2>" "$html" | grep -q "Coming soon" \
-  && ! grep -A14 "<h2>Seclusa Privacy</h2>" "$html" | grep -qE 'href="https://(ambr3\.github\.io/privacy-check/|github\.com/ambr3/privacy-check)"'; then
-  ok "store tile Seclusa Privacy is Coming soon (no live links)"
+if grep -A12 "<h2>Seclusa Check</h2>" "$html" | grep -q 'href="check/"' \
+  && ! grep -A14 "<h2>Seclusa Check</h2>" "$html" | grep -qE 'href="https://(ambr3\.github\.io/privacy-check/|github\.com/ambr3/privacy-check)"'; then
+  ok "store tile Seclusa Check opens /check/ on this site"
 else
-  bad "store tile Seclusa Privacy should be Coming soon without Open/Source links"
+  bad "store tile Seclusa Check should Open check/ without the old privacy-check repo links"
 fi
 
 if grep -A18 "<h2>Seclusa TDS</h2>" "$html" | grep -q 'href="https://ambr3.github.io/seclusa-tds/"' \
@@ -164,7 +170,7 @@ else
   ok "no global a/s shortcuts in site.js"
 fi
 
-for f in "$ROOT/index.html" "$ROOT/offline.html" "$ROOT/about/index.html" "$ROOT/privacy/index.html"; do
+for f in "$ROOT/index.html" "$ROOT/offline.html" "$ROOT/about/index.html" "$ROOT/privacy/index.html" "$ROOT/check/index.html"; do
   if grep -q 'data-theme-opt="system"' "$f" && grep -q 'data-theme-opt="light"' "$f" && grep -q 'data-theme-opt="dark"' "$f"; then
     ok "theme sheet in ${f#"$ROOT"/}"
   else
