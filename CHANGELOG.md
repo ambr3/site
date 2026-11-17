@@ -2,6 +2,12 @@
 
 All notable changes to **SeclusaSite**.
 
+## 25 — 2026-11-17
+
+### Changed
+- Store tiles synced: Weather 0.8.2, Calc 0.1.36, Word Puzzle 0.4.1
+- Asset and service-worker cache version 25
+
 ## 24 — 2026-11-16
 
 ### Added

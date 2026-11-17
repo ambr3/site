@@ -6,7 +6,7 @@ Hosted on GitHub Pages from this repository.
 
 ## Features
 
-- Version 24
+- Version 25
 - Links to each app’s GitHub Pages demo and source repo
 - Privacy check toolkit on `/check/` (local policy, headers, URLs, app notes)
 - Works offline once you have opened it (service worker)
