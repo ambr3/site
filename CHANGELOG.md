@@ -2,6 +2,12 @@
 
 All notable changes to **SeclusaSite**.
 
+## 26 — 2026-11-21
+
+### Changed
+- Store tiles synced: Calendar 0.3.15 (Today deck, centered settings/cards, softer light, safer reminders), Weather 0.8.3
+- Asset and service-worker cache version 26
+
 ## 25 — 2026-11-17
 
 ### Changed

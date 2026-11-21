@@ -4,8 +4,15 @@
     <title>Seclusa</title>
     <link>https://ambr3.github.io/site/</link>
     <description>Privacy-first Seclusa apps. Source on GitHub.</description>
-    <lastBuildDate>Tue, 17 Nov 2026 18:00:00 +0000</lastBuildDate>
-                    <item>
+    <lastBuildDate>Sat, 21 Nov 2026 13:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Store sync — Calendar 0.3.15, Weather 0.8.3</title>
+      <link>https://ambr3.github.io/site/#apps</link>
+      <guid isPermaLink="true">https://ambr3.github.io/site/#site-26</guid>
+      <pubDate>Sat, 21 Nov 2026 13:00:00 +0000</pubDate>
+      <description>Calendar 0.3.15 (Today deck, centered card settings, softer light, safer reminders) and Weather 0.8.3 synced on the store.</description>
+    </item>
+    <item>
       <title>Store sync — Weather 0.8.2, Calc 0.1.36, Word Puzzle 0.4.1</title>
       <link>https://ambr3.github.io/site/#apps</link>
       <guid isPermaLink="true">https://ambr3.github.io/site/#site-25</guid>
