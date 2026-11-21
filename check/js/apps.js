@@ -27,11 +27,29 @@
 
   var APPS = [
     {
+      id: "brave-origin",
+      name: "Brave Origin",
+      category: "browsers",
+      pick: "Personal favorite",
+      why: "Minimalist Brave with Shields and Chromium updates, minus the AI, crypto, news, VPN, and telemetry extras. Free on Linux; one-time purchase elsewhere.",
+      platforms: ["Desktop", "iOS", "Android"],
+      url: "https://brave.com/origin/",
+      good: [
+        note("Keeps Brave Shields and regular Chromium security updates while removing Leo AI, Rewards, Wallet, News, VPN, daily usage pings, crash logs, and P3A.", "https://brave.com/origin/"),
+        note("Standalone desktop builds remove those extra features from the app, and Linux builds are free.", "https://brave.com/origin/"),
+        note("Purchases use blind tokens based on Privacy Pass so the browser checks your licence without linking the device to a Brave account.", "https://brave.com/origin/")
+      ],
+      bad: [
+        note("Costs a $59.99 one-time purchase on Windows, macOS, iOS, and Android (free on Linux).", "https://brave.com/origin/"),
+        note("On Android and iOS, Origin is an upgrade to the regular Brave app rather than a separate standalone build.", "https://brave.com/origin/"),
+        note("Shares Brave’s Shields farbling model, which Brave’s own write-up aims at mass trackers rather than a targeted fingerprinter.", "https://brave.com/privacy-updates/4-fingerprinting-defenses-2.0/")
+      ]
+    },
+    {
       id: "brave",
       name: "Brave",
       category: "browsers",
-      pick: "Personal favorite",
-      why: "Chromium with tracker blocking turned on. Desktop Chromium isolates sites into separate processes. This is not Tor.",
+      why: "Chromium with tracker blocking turned on. Desktop Chromium isolates sites into separate processes. Not as stripped-down as Brave Origin, and this is not Tor.",
       platforms: ["Desktop", "iOS", "Android"],
       url: "https://brave.com/",
       good: [
@@ -39,6 +57,7 @@
         note("Shields block trackers and third-party ads by default.", "https://brave.com/shields/")
       ],
       bad: [
+        note("Not as good as Brave Origin: regular Brave ships with Leo AI, Rewards, Wallet, News, VPN, daily usage pings, crash logs, and P3A rather than removing them.", "https://brave.com/origin/"),
         note("Brave’s own write-up says farbling is aimed at mass trackers who will not spend serious effort on one person. A targeted fingerprinter is a different problem.", "https://brave.com/privacy-updates/4-fingerprinting-defenses-2.0/"),
         note("A 2025 paper tested canvas fingerprint defences in the wild, including Brave’s randomisation, and reports successful attacks on those schemes.", "https://dl.acm.org/doi/10.1145/3696410.3714713")
       ]
@@ -171,38 +190,6 @@
       ]
     },
     {
-      id: "nextdns",
-      name: "NextDNS",
-      category: "dns",
-      why: "Pick this when you want your own blocklists on every device, and you will actually check the log setting.",
-      platforms: ["Network"],
-      url: "https://nextdns.io/",
-      good: [
-        note("Queries are discarded after the answer unless you turn logging on. You choose what is kept and for how long.", "https://nextdns.io/privacy"),
-        note("Blocklists are per configuration, so a phone and a laptop can follow the same rules.")
-      ],
-      bad: [
-        note("If you turn logging on, query history sits with NextDNS for the retention you set.", "https://nextdns.io/privacy"),
-        note("The free plan stops filtering after a monthly query cap, so a busy home can silently lose the blocklists.")
-      ]
-    },
-    {
-      id: "adguard-dns",
-      name: "AdGuard DNS",
-      category: "dns",
-      why: "A no-install way to block ads and trackers for a whole network.",
-      platforms: ["Network"],
-      url: "https://adguard-dns.io/",
-      good: [
-        note("The public resolvers do not require an account. AdGuard says that mode does not process personal data.", "https://adguard-dns.io/en/privacy.html"),
-        note("Default servers block domains they class as ads, trackers, or malware.", "https://adguard-dns.io/en/privacy.html")
-      ],
-      bad: [
-        note("They keep an anonymous database of domains requested in the last 24 hours, with nothing that links a name to a person, to spot new trackers and threats.", "https://adguard-dns.io/en/privacy.html"),
-        note("Private AdGuard DNS stores query logs on your account unless you turn that off.", "https://adguard-dns.io/en/privacy.html")
-      ]
-    },
-    {
       id: "proton-vpn",
       name: "Proton VPN",
       category: "vpn",
@@ -235,21 +222,6 @@
       ]
     },
     {
-      id: "ivpn",
-      name: "IVPN",
-      category: "vpn",
-      why: "A small paid VPN in the same “no email, no traffic logs” camp as Mullvad.",
-      platforms: ["Desktop", "iOS", "Android"],
-      url: "https://www.ivpn.net/",
-      good: [
-        note("Signup asks for no name or email. The policy says they do not log traffic, DNS, bandwidth, IPs, or connection times.", "https://www.ivpn.net/en/privacy/"),
-        note("IVPN says it is registered in Gibraltar, and that its GDPR regulator is the Gibraltar Regulatory Authority.", "https://www.ivpn.net/en/privacy/")
-      ],
-      bad: [
-        note("No free tier. You are trusting a smaller staff and a smaller server list than the largest VPNs.")
-      ]
-    },
-    {
       id: "signal",
       name: "Signal",
       category: "messengers",
@@ -267,34 +239,19 @@
       ]
     },
     {
-      id: "simplex",
-      name: "SimpleX Chat",
+      id: "matrix",
+      name: "Matrix",
       category: "messengers",
-      why: "Use it when you do not want a phone number, username, or any other account id.",
-      platforms: ["Desktop", "iOS", "Android"],
-      url: "https://simplex.chat/",
+      why: "Open federated messaging protocol with end-to-end encryption. Pick a homeserver or run your own instead of relying on one company.",
+      platforms: ["Desktop", "iOS", "Android", "Web"],
+      url: "https://matrix.org/",
       good: [
-        note("There are no user IDs, not even random numbers that identify you. You connect by sharing a link or QR.", "https://simplex.chat/privacy/"),
-        note("Relays cannot read messages. The app uses a double-ratchet, and relays do not host accounts.", "https://simplex.chat/privacy/")
+        note("End-to-end encrypted rooms use Olm and Megolm, so homeservers relay ciphertext instead of message contents; once enabled on a room, encryption cannot be disabled.", "https://matrix.org/docs/matrix-concepts/end-to-end-encryption/"),
+        note("Federation lets you pick a homeserver or self-host your own and still talk to users on other servers, with no single server owning a room.", "https://spec.matrix.org/latest/")
       ],
       bad: [
-        note("Trail of Bits’ July 2024 design review found no critical issues, three medium issues, and one low issue. SimpleX says the medium findings include traffic correlation and a case that matters after the device is already compromised; three issues were improved in 6.1 and the rest were accepted.", "https://simplex.chat/blog/20241014-simplex-network-v6-1-security-review-better-calls-user-experience.html")
-      ]
-    },
-    {
-      id: "briar",
-      name: "Briar",
-      category: "messengers",
-      why: "For people who may lose the internet and still need to message someone nearby, or over Tor.",
-      platforms: ["Desktop", "Android"],
-      url: "https://briarproject.org/",
-      good: [
-        note("Contacts sync over Tor, or directly by Wi‑Fi or Bluetooth when you are near each other. There is no home server.", "https://briarproject.org/how-it-works/"),
-        note("Adding someone is a deliberate exchange, not a phone-number lookup.")
-      ],
-      bad: [
-        note("Both people need Briar running. It will not reach contacts who stay on ordinary messengers.", "https://briarproject.org/how-it-works/"),
-        note("Desktop builds lag the Android app, and the network of users is small.")
+        note("Matrix says admins of homeservers participating in a conversation can see metadata on who is talking in which rooms.", "https://matrix.org/blog/2025/06/dispelling-myths/"),
+        note("Room history and state are replicated across every homeserver whose users participate in that room, not only yours.", "https://spec.matrix.org/latest/")
       ]
     },
     {
@@ -425,19 +382,21 @@
       ]
     },
     {
-      id: "osmand",
-      name: "OsmAnd",
+      id: "comaps",
+      name: "CoMaps",
       category: "maps",
-      why: "The fuller offline map app when Organic Maps is too bare and you will check its identifiers.",
-      platforms: ["Android", "iOS"],
-      url: "https://osmand.net/",
+      why: "Community-led fork of Organic Maps for offline navigation, with offline postcode search built in.",
+      platforms: ["Desktop", "iOS", "Android"],
+      url: "https://www.comaps.app/",
       good: [
-        note("Turn-by-turn navigation works offline from OpenStreetMap data, with no Google account.", "https://osmand.net/"),
-        note("On Android you can stop the app sending its install id with map downloads.", "https://www.privacyguides.org/en/maps/#osmand")
+        note("Its privacy policy says CoMaps has no user identification, advertising, or personal data collection, and does not track you.", "https://www.comaps.app/privacy/"),
+        note("Supports offline postcode search using UK Ordnance Survey and Food Hygiene Ratings data for the UK and the US Zip Codes Database for the US.", "https://www.comaps.app/support/which-data-sources-does-comaps-use/"),
+        note("Removed Kayak referral links and Firebase test builds from upstream, and lets Android users set a custom map download server.", "https://www.comaps.app/news/2026-01-05/comaps-focuses-privacy/")
       ],
       bad: [
-        note("Each install gets an id that rotates every three months and is sent when you download maps, unless you turn that off on Android.", "https://www.privacyguides.org/en/maps/#osmand"),
-        note("The iOS app has no switch for that id, and anonymous stats are on by default there.", "https://www.privacyguides.org/en/maps/#osmand")
+        note("By default, map downloads hit a meta-server that uses your IP to pick a CDN, unless you set a custom server on Android.", "https://www.comaps.app/news/2026-01-05/comaps-focuses-privacy/"),
+        note("UK postcode search needs the space in the middle (for example “PH20 1DA”, not “PH201DA”).", "https://codeberg.org/comaps/comaps/issues/747"),
+        note("No live traffic, satellite, or street view. That is the trade for staying offline.")
       ]
     },
     {

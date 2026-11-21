@@ -249,7 +249,7 @@ test("apps filter by category and search", () => {
   assert.ok(vpn.length >= 2);
   assert.ok(vpn.every((a) => a.category === "vpn"));
   const fav = PrivacyApps.filterApps({ query: "personal favorite" });
-  ["brave", "ublock-origin", "duckduckgo", "quad9", "mullvad", "signal",
+  ["brave-origin", "ublock-origin", "duckduckgo", "quad9", "mullvad", "signal",
     "bitwarden", "posteo", "magic-earth", "bitwarden-auth", "grapheneos"
   ].forEach((id) => assert.ok(fav.some((a) => a.id === id), id));
   assert.ok(fav.every((a) => a.pick === "Personal favorite"));
@@ -264,6 +264,12 @@ test("apps filter by category and search", () => {
   assert.ok(codes.some((a) => a.id === "bitwarden-auth"));
   const signal = PrivacyApps.filterApps({ query: "signal" });
   assert.ok(signal.some((a) => a.id === "signal"));
+  const origin = PrivacyApps.filterApps({ query: "brave origin" });
+  assert.ok(origin.some((a) => a.id === "brave-origin"));
+  const matrix = PrivacyApps.filterApps({ query: "matrix" });
+  assert.ok(matrix.some((a) => a.id === "matrix"));
+  const comaps = PrivacyApps.filterApps({ query: "postcode" });
+  assert.ok(comaps.some((a) => a.id === "comaps"));
   const imap = PrivacyApps.filterApps({ query: "imap" });
   assert.ok(imap.some((a) => a.id === "tuta"));
   assert.ok(imap.some((a) => a.id === "posteo"));

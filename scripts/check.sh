@@ -67,7 +67,7 @@ fi
 declare -A expect=(
   [weather]="0.8.3"
   [notes]="0.2.15"
-  [calendar]="0.3.15"
+  [calendar]="0.3.16"
   [bp]="0.2.4"
   [convert]="0.1.7"
   [calc]="0.1.36"

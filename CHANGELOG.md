@@ -2,6 +2,14 @@
 
 All notable changes to **SeclusaSite**.
 
+## 27 — 2026-11-21
+
+### Changed
+- Privacy check catalog: added Brave Origin (Personal favorite), Matrix, and CoMaps (offline postcode search); removed NextDNS, AdGuard DNS, IVPN, SimpleX Chat, Briar, and OsmAnd; noted Brave vs Brave Origin
+- Privacy check copy: early alpha note and “personally used every app listed” note
+- Store tile synced: Calendar 0.3.16
+- Asset and service-worker cache version 27
+
 ## 26 — 2026-11-21
 
 ### Changed

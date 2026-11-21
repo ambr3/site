@@ -4,7 +4,14 @@
     <title>Seclusa</title>
     <link>https://ambr3.github.io/site/</link>
     <description>Privacy-first Seclusa apps. Source on GitHub.</description>
-    <lastBuildDate>Sat, 21 Nov 2026 13:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 13:20:00 +0000</lastBuildDate>
+    <item>
+      <title>Privacy check catalog update &amp; Calendar 0.3.16</title>
+      <link>https://ambr3.github.io/site/check/</link>
+      <guid isPermaLink="true">https://ambr3.github.io/site/#site-27</guid>
+      <pubDate>Sat, 21 Nov 2026 13:20:00 +0000</pubDate>
+      <description>Privacy check updated with Brave Origin (Personal favorite), Matrix, and CoMaps; trimmed catalog; early alpha and first-hand use notes. Calendar synced to 0.3.16.</description>
+    </item>
     <item>
       <title>Store sync — Calendar 0.3.15, Weather 0.8.3</title>
       <link>https://ambr3.github.io/site/#apps</link>
